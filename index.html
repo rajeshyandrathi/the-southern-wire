@@ -81,7 +81,36 @@
     white-space:nowrap;
   }
 
-  main{padding-block:36px 60px;}
+  main{padding-block:28px 60px;}
+
+  .top-stories{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px 20px;
+    margin-bottom:32px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .top-stories .ts-label{
+    font-size:0.72rem;font-weight:800;
+    text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--accent);
+    white-space:nowrap;
+  }
+  .top-stories ol{
+    list-style:none;margin:0;padding:0;
+    display:flex;gap:22px;flex-wrap:wrap;
+    flex:1;
+  }
+  .top-stories li{
+    font-size:0.88rem;font-weight:600;
+    display:flex;align-items:baseline;gap:8px;
+  }
+  .top-stories li .ts-num{color:var(--accent);font-weight:800;font-size:0.8rem;}
+  .top-stories a:hover{color:var(--accent);}
 
   .tag{
     display:inline-flex;align-items:center;
@@ -110,13 +139,19 @@
     font-weight:600;
   }
   .byline .sep{margin:0 6px;opacity:0.5;}
+  .read-more{
+    font-size:0.78rem;font-weight:700;color:var(--accent);
+    margin-top:10px;display:inline-block;
+  }
 
   .lead{
     position:relative;
     padding-bottom:40px;
     margin-bottom:40px;
     border-bottom:1px solid var(--border);
+    transition:opacity 0.15s ease;
   }
+  .lead:hover{opacity:0.88;}
   .lead .num{
     position:absolute;
     top:-6px;right:0;
@@ -128,7 +163,7 @@
     z-index:-1;
     user-select:none;
   }
-  .lead-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+  .lead-link{position:absolute;inset:0;z-index:1;}
   .lead h1{
     font-family:'Inter Tight',sans-serif;
     font-weight:800;
@@ -167,7 +202,10 @@
     background:var(--bg);
     padding:24px;
     display:flex;flex-direction:column;
+    transition:background 0.15s ease;
   }
+  .card:hover{background:var(--surface);}
+  .card-link{position:absolute;inset:0;z-index:1;}
   .card .num{
     position:absolute;
     top:14px;right:18px;
@@ -223,18 +261,30 @@
 
 <main class="wrap">
 
+  <section class="top-stories">
+    <span class="ts-label">Top Stories</span>
+    <ol>
+      <li><span class="ts-num">01</span><a href="posts/2026-09-19-ekurhuleni-serial-killings.html">Fear grips Ekurhuleni as ninth body found in serial killings probe</a></li>
+      <li><span class="ts-num">02</span><a href="posts/2026-09-19-us-tariff-offer.html">Pretoria pushes revised offer to cut 30% US tariff</a></li>
+      <li><span class="ts-num">03</span><a href="posts/2026-09-19-bok-squad.html">Erasmus splits Bok squad ahead of rivalry series opener</a></li>
+    </ol>
+  </section>
+
   <section class="lead">
+    <a class="lead-link" href="posts/2026-09-19-ekurhuleni-serial-killings.html" aria-label="Read full story"></a>
     <span class="num">01</span>
     <div class="icon-badge lead-badge" style="background:linear-gradient(145deg,#ffd9d4,#ffb3a8)">&#128680;</div>
     <span class="tag">Crime &amp; Courts</span>
     <h1>Fear grips Ekurhuleni as ninth body found in serial killings probe</h1>
     <p class="dek">Nine women have been found dead across Ekurhuleni, east of Johannesburg, since the first body was discovered in Kempton Park in mid-July. Police have named four of the victims and are holding at least one suspect, while investigators work to establish whether one person or several are responsible. President Cyril Ramaphosa has ordered police to leave "no stone unturned," and a sizeable reward has been offered for information leading to further arrests.</p>
     <div class="byline">The Southern Wire Desk<span class="sep">&middot;</span>Johannesburg</div>
+    <span class="read-more">Read the full story &rarr;</span>
   </section>
 
   <div class="grid">
 
     <article class="card">
+      <a class="card-link" href="posts/2026-09-19-bok-squad.html" aria-label="Read full story"></a>
       <span class="num">02</span>
       <div class="icon-badge" style="background:linear-gradient(145deg,#d4f7e3,#a8f0c6)">&#127945;</div>
       <span class="tag">Sport</span>
@@ -244,6 +294,7 @@
     </article>
 
     <article class="card">
+      <a class="card-link" href="posts/2026-09-19-us-tariff-offer.html" aria-label="Read full story"></a>
       <span class="num">03</span>
       <div class="icon-badge" style="background:linear-gradient(145deg,#dbe8ff,#b8d0ff)">&#128200;</div>
       <span class="tag">Business &amp; Economy</span>
@@ -253,6 +304,7 @@
     </article>
 
     <article class="card">
+      <a class="card-link" href="posts/2026-09-19-ai-chips-copyright.html" aria-label="Read full story"></a>
       <span class="num">04</span>
       <div class="icon-badge" style="background:linear-gradient(145deg,#cdf3f2,#9de8e5)">&#129302;</div>
       <span class="tag">Sci &amp; Tech</span>
@@ -262,6 +314,7 @@
     </article>
 
     <article class="card">
+      <a class="card-link" href="posts/2026-09-19-municipal-governance.html" aria-label="Read full story"></a>
       <span class="num">05</span>
       <div class="icon-badge" style="background:linear-gradient(145deg,#ecdcff,#d6b8ff)">&#127963;&#65039;</div>
       <span class="tag">Politics &mdash; SA &amp; Africa</span>
@@ -271,6 +324,7 @@
     </article>
 
     <article class="card">
+      <a class="card-link" href="posts/2026-09-19-streaming-september.html" aria-label="Read full story"></a>
       <span class="num">06</span>
       <div class="icon-badge" style="background:linear-gradient(145deg,#ffe9c2,#ffd28a)">&#127916;</div>
       <span class="tag">Film &amp; Screen</span>
@@ -280,6 +334,7 @@
     </article>
 
     <article class="card">
+      <a class="card-link" href="posts/2026-09-19-musk-empire.html" aria-label="Read full story"></a>
       <span class="num">07</span>
       <div class="icon-badge" style="background:linear-gradient(145deg,#e2e8f0,#c7d2e0)">&#127757;</div>
       <span class="tag">World</span>

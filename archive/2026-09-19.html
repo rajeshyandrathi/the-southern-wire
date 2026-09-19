@@ -4,333 +4,297 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Southern Wire</title>
-<meta name="description" content="A daily digest of South African, African and world news — crime, sport, tech, screen, politics and business — written fresh every morning.">
+<meta name="description" content="A daily digest of South African, African and world news — crime, sport, tech, screen, politics and business — written fresh every morning in our own voice.">
 <style>
   :root{
-    --paper:#eef0ea;
-    --paper-raised:#f7f8f4;
-    --ink:#1c2321;
-    --ink-soft:#4a524c;
-    --accent:#a9781c;
-    --accent-ink:#3a2f05;
-    --link:#2d3a5f;
-    --rule:#c3c9ba;
-    --rule-strong:#1c2321;
-    --tag-bg:#dfe3d3;
-    --shadow: 0 1px 0 rgba(28,35,33,0.06);
+    --bg:#ffffff;
+    --surface:#f6f7f8;
+    --text:#0b0d10;
+    --text-dim:#5b6470;
+    --border:#e7e9ec;
+    --accent:#e0392c;
+    --accent-soft:#fdeceb;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --paper:#15181a;
-      --paper-raised:#1c2023;
-      --ink:#e9e9e2;
-      --ink-soft:#a7ada3;
-      --accent:#dab54f;
-      --accent-ink:#f4e7bb;
-      --link:#9aabdb;
-      --rule:#33383a;
-      --rule-strong:#e9e9e2;
-      --tag-bg:#242822;
-      --shadow: 0 1px 0 rgba(0,0,0,0.3);
+      --bg:#0b0d10;
+      --surface:#15181c;
+      --text:#f2f3f5;
+      --text-dim:#9aa3ad;
+      --border:#22262b;
+      --accent:#ff5b4c;
+      --accent-soft:#2a1613;
     }
   }
   :root[data-theme="dark"]{
-    --paper:#15181a;
-    --paper-raised:#1c2023;
-    --ink:#e9e9e2;
-    --ink-soft:#a7ada3;
-    --accent:#dab54f;
-    --accent-ink:#f4e7bb;
-    --link:#9aabdb;
-    --rule:#33383a;
-    --rule-strong:#e9e9e2;
-    --tag-bg:#242822;
-    --shadow: 0 1px 0 rgba(0,0,0,0.3);
+    --bg:#0b0d10; --surface:#15181c; --text:#f2f3f5; --text-dim:#9aa3ad;
+    --border:#22262b; --accent:#ff5b4c; --accent-soft:#2a1613;
   }
 
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@700;800;900&display=swap');
 
   *{box-sizing:border-box;}
-  html{scroll-padding-top:0px;}
   body{
     margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', system-ui, sans-serif;
-    padding-inline:20px;
-    padding-block:28px 60px;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', -apple-system, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
   }
-  a{color:var(--link);}
-  .wrap{max-width:1040px;margin-inline:auto;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin-inline:auto;padding-inline:20px;}
 
-  .mono{font-family:'IBM Plex Mono', ui-monospace, monospace;}
+  header.topbar{
+    border-bottom:1px solid var(--border);
+    position:sticky;top:0;
+    background:var(--bg);
+    z-index:10;
+  }
+  .topbar-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-block:16px;
+    gap:12px;flex-wrap:wrap;
+  }
+  .brand{
+    font-family:'Inter Tight',sans-serif;
+    font-weight:800;
+    font-size:1.4rem;
+    letter-spacing:-0.02em;
+  }
+  .brand .dot{color:var(--accent);}
+  .topbar-meta{
+    font-size:0.8rem;
+    color:var(--text-dim);
+    font-weight:500;
+    display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+  }
+  .topbar-meta a{color:var(--text-dim);border-bottom:1px solid transparent;}
+  .topbar-meta a:hover{color:var(--accent);border-color:var(--accent);}
 
-  header.masthead{
-    border-top:3px double var(--rule-strong);
-    border-bottom:1px solid var(--rule-strong);
-    padding-block:14px 12px;
-    margin-bottom:18px;
-  }
-  .masthead-top{
-    display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
-    margin-bottom:10px;
-  }
-  .masthead-top a{color:var(--ink-soft);}
-  h1.title{
-    font-family:'Fraunces', serif;
-    font-optical-sizing:auto;
-    font-weight:700;
-    font-size:clamp(2.6rem, 8vw, 4.6rem);
-    line-height:.92;
-    letter-spacing:-0.01em;
-    margin:0;
-    text-align:center;
-  }
-  .tagline{
-    text-align:center;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-    margin-top:8px;
-  }
-  .tagline b{color:var(--accent-ink);font-weight:600;}
-
-  .brief-strip{
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
+  nav.deskrow{
+    display:flex;gap:20px;overflow-x:auto;
     padding-block:10px;
-    border-bottom:1px solid var(--rule);
-    margin-bottom:26px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    color:var(--ink-soft);
+    border-top:1px solid var(--border);
+    font-size:0.78rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.04em;
+    color:var(--text-dim);
     white-space:nowrap;
   }
-  .brief-strip span.bs-label{
-    color:var(--accent-ink);
-    font-weight:600;
-    letter-spacing:.08em;
-  }
-  .brief-strip .sep{color:var(--rule-strong);opacity:.5;}
 
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:var(--accent-ink);
-    background:var(--tag-bg);
-    display:inline-block;
-    padding:3px 8px;
-    border-radius:2px;
-    margin-bottom:10px;
+  main{padding-block:36px 60px;}
+
+  .tag{
+    display:inline-flex;align-items:center;
+    font-size:0.72rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.05em;
+    color:var(--accent);
+    background:var(--accent-soft);
+    padding:4px 10px;border-radius:20px;
+    margin-bottom:14px;
   }
+
+  .icon-badge{
+    width:56px;height:56px;border-radius:18px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:28px;line-height:1;
+    margin-bottom:14px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.5);
+  }
+  .icon-badge.lead-badge{
+    width:76px;height:76px;border-radius:22px;font-size:40px;
+  }
+
+  .byline{
+    font-size:0.78rem;
+    color:var(--text-dim);
+    font-weight:600;
+  }
+  .byline .sep{margin:0 6px;opacity:0.5;}
 
   .lead{
-    padding-block-end:26px;
-    margin-bottom:30px;
-    border-bottom:1px solid var(--rule);
+    position:relative;
+    padding-bottom:40px;
+    margin-bottom:40px;
+    border-bottom:1px solid var(--border);
   }
-  .lead h2{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:clamp(1.6rem, 4.2vw, 2.5rem);
-    line-height:1.08;
-    margin:0 0 12px;
-    text-wrap:balance;
+  .lead .num{
+    position:absolute;
+    top:-6px;right:0;
+    font-family:'Inter Tight',sans-serif;
+    font-weight:900;
+    font-size:5rem;
+    line-height:1;
+    color:var(--surface);
+    z-index:-1;
+    user-select:none;
   }
-  .lead p.summary{
-    font-size:1.05rem;
-    line-height:1.6;
-    color:var(--ink);
-    max-width:66ch;
-    margin:0 0 12px;
+  .lead-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+  .lead h1{
+    font-family:'Inter Tight',sans-serif;
+    font-weight:800;
+    font-size:clamp(1.9rem, 4.6vw, 3.1rem);
+    line-height:1.05;
+    letter-spacing:-0.02em;
+    margin:0 0 16px;
+    max-width:20ch;
+  }
+  .lead p.dek{
+    font-size:1.15rem;
+    line-height:1.55;
+    color:var(--text-dim);
+    max-width:62ch;
+    margin:0 0 16px;
+    font-weight:400;
   }
 
-  .desk-grid{
+  .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-    gap:0;
-    border-top:1px solid var(--rule-strong);
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+    border-radius:14px;
+    overflow:hidden;
   }
-  .desk{
-    padding:20px 22px 22px 0;
-    border-bottom:1px solid var(--rule);
+  @media (max-width:860px){
+    .grid{grid-template-columns:repeat(2, 1fr);}
   }
-  .desk-grid .desk:nth-child(odd){
-    padding-right:26px;
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr;}
   }
-  .desk-grid .desk:nth-child(even){
-    padding-left:26px;
-    border-left:1px solid var(--rule);
+  .card{
+    position:relative;
+    background:var(--bg);
+    padding:24px;
+    display:flex;flex-direction:column;
   }
-  @media (max-width:640px){
-    .desk-grid .desk:nth-child(even){border-left:none;padding-left:0;}
-    .desk{padding-right:0;}
+  .card .num{
+    position:absolute;
+    top:14px;right:18px;
+    font-family:'Inter Tight',sans-serif;
+    font-weight:800;
+    font-size:0.78rem;
+    color:var(--text-dim);
+    opacity:0.55;
   }
-  .desk-name{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:var(--accent-ink);
-    border-bottom:2px solid var(--accent);
-    display:inline-block;
-    padding-bottom:4px;
-    margin-bottom:12px;
-  }
-  .desk h3{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:1.32rem;
-    line-height:1.2;
-    margin:0 0 8px;
-    text-wrap:balance;
-  }
-  .desk p.summary{
-    font-size:.95rem;
-    line-height:1.55;
-    color:var(--ink);
+  .card h2{
+    font-family:'Inter Tight',sans-serif;
+    font-weight:700;
+    font-size:1.15rem;
+    line-height:1.25;
+    letter-spacing:-0.01em;
     margin:0 0 10px;
   }
-  .source-line{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    color:var(--ink-soft);
-    letter-spacing:.02em;
+  .card p.summary{
+    font-size:0.92rem;
+    line-height:1.55;
+    color:var(--text-dim);
+    margin:0 0 14px;
+    flex-grow:1;
   }
-  .source-line a{text-decoration:none;border-bottom:1px solid var(--rule-strong);}
 
   footer{
-    margin-top:40px;
-    padding-top:18px;
-    border-top:3px double var(--rule-strong);
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    color:var(--ink-soft);
+    margin-top:20px;
+    padding-top:24px;
+    border-top:1px solid var(--border);
+    font-size:0.82rem;
+    color:var(--text-dim);
     line-height:1.7;
   }
-  footer .foot-title{
-    color:var(--ink);
-    font-weight:600;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    display:block;
-    margin-bottom:6px;
-  }
+  footer strong{color:var(--text);}
   footer p{max-width:70ch;margin:0 0 8px;}
 </style>
 </head>
 <body>
-<div class="wrap">
-
-  <header class="masthead">
-    <div class="masthead-top">
-      <span>Vol. I &middot; No. 1</span>
-      <span>Johannesburg, South Africa</span>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">The Southern<span class="dot">.</span>Wire</div>
+    <div class="topbar-meta">
       <span id="today-date">Saturday, 19 September 2026</span>
-      <a href="../index.html">Today &rarr;</a> &middot; <a href="index.html">Archive</a>
+      <a href="../index.html">Today &rarr;</a>
     </div>
-    <h1 class="title">The Southern Wire</h1>
-    <div class="tagline">Crime &middot; Tech &middot; Sport &middot; Screen &middot; Africa &middot; World &nbsp;&mdash;&nbsp; <b>filed fresh every morning at 05:00 SAST</b></div>
-  </header>
-
-  <div class="brief-strip mono">
-    <span class="bs-label">IN BRIEF</span>
-    <span class="sep">/</span>
-    <span>9th body found in Ekurhuleni serial killings probe</span>
-    <span class="sep">/</span>
-    <span>Boks name 43-man squad for NZ rivalry series</span>
-    <span class="sep">/</span>
-    <span>Nvidia eyes double chip sales in 2027</span>
-    <span class="sep">/</span>
-    <span>Pretoria tables revised offer on 30% US tariff</span>
-    <span class="sep">/</span>
-    <span>BRICS leaders push BRICS Pay at New Delhi summit</span>
-    <span class="sep">/</span>
-    <span>SpaceX IPO valued Musk empire near $1.77tn</span>
   </div>
+  <div class="wrap">
+    <nav class="deskrow">
+      <span>Crime</span><span>Sport</span><span>Business</span><span>Politics</span><span>Tech</span><span>Screen</span><span>World</span>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
 
   <section class="lead">
-    <span class="eyebrow">Lead Story &mdash; Crime &amp; Courts</span>
-    <h2>Fear grips Ekurhuleni as ninth body found in serial killings probe</h2>
-    <p class="summary">
-      Nine women have been found dead across Ekurhuleni, east of Johannesburg, since the first body was discovered in Kempton Park on 17 July. The most recent victim was found in Dawn Park on 17 September. Police have named four of the women &mdash; Dineo Motapane (38), Gracious Nkomo (28), Elizabeth Moselakgomo (38) and Itumeleng Kekana (32) &mdash; and are holding at least one suspect, who appeared in court this week, while investigators work to establish whether one person or several are responsible. President Cyril Ramaphosa has ordered police to leave "no stone unturned," and a R400,000 reward has been offered for information leading to further arrests. One senior police official described the hunt in stark terms: "This is a war &mdash; individuals are being hunted."
-    </p>
-    <div class="source-line">Sources: <a href="https://www.aljazeera.com/news/2026/9/19/fear-and-anger-in-south-africa-as-bodies-of-nine-women-found-what-we-know" target="_blank" rel="noopener">Al Jazeera</a> &middot; <a href="https://www.timeslive.co.za/news/south-africa/2026-09-15-nearly-70000-arrests-but-cape-town-crime-hotspots-remain-among-sas-worst/" target="_blank" rel="noopener">TimesLIVE</a> &middot; <a href="https://www.dailymaverick.co.za/" target="_blank" rel="noopener">Daily Maverick</a></div>
+    <span class="num">01</span>
+    <div class="icon-badge lead-badge" style="background:linear-gradient(145deg,#ffd9d4,#ffb3a8)">&#128680;</div>
+    <span class="tag">Crime &amp; Courts</span>
+    <h1>Fear grips Ekurhuleni as ninth body found in serial killings probe</h1>
+    <p class="dek">Nine women have been found dead across Ekurhuleni, east of Johannesburg, since the first body was discovered in Kempton Park in mid-July. Police have named four of the victims and are holding at least one suspect, while investigators work to establish whether one person or several are responsible. President Cyril Ramaphosa has ordered police to leave "no stone unturned," and a sizeable reward has been offered for information leading to further arrests.</p>
+    <div class="byline">The Southern Wire Desk<span class="sep">&middot;</span>Johannesburg</div>
   </section>
 
-  <div class="desk-grid">
+  <div class="grid">
 
-    <article class="desk">
-      <span class="desk-name">Sport</span>
-      <h3>Erasmus splits Bok squad ahead of rivalry series opener</h3>
-      <p class="summary">Springbok coach Rassie Erasmus has named a 43-player squad for the Rugby Greatest Rivalry series against New Zealand, opening at Ellis Park after a warm-up test in Buenos Aires. Locks Eben Etzebeth and Lood de Jager return from injury alongside flyhalf Sacha Feinberg-Mngomezulu, with captain Siya Kolisi also back, while several fringe players have been released for franchise duty against the touring All Blacks.</p>
-      <div class="source-line">Source: <a href="https://supersport.com/rugby/news/d20845b5-f1d5-4b4d-9e5f-ea615918f14a/bok-squad-sacha-returns-as-rassie-goes-strategic-ahead-of-rgr-series" target="_blank" rel="noopener">SuperSport</a></div>
+    <article class="card">
+      <span class="num">02</span>
+      <div class="icon-badge" style="background:linear-gradient(145deg,#d4f7e3,#a8f0c6)">&#127945;</div>
+      <span class="tag">Sport</span>
+      <h2>Erasmus splits Bok squad ahead of rivalry series opener</h2>
+      <p class="summary">Springbok coach Rassie Erasmus has named a 43-player squad for the Rugby Greatest Rivalry series against New Zealand, opening at Ellis Park. Locks Eben Etzebeth and Lood de Jager return from injury alongside flyhalf Sacha Feinberg-Mngomezulu, with captain Siya Kolisi also back.</p>
+      <div class="byline">Sport Desk</div>
     </article>
 
-    <article class="desk">
-      <span class="desk-name">Business &amp; Economy</span>
-      <h3>Pretoria pushes revised offer to cut 30% US tariff</h3>
-      <p class="summary">South Africa's cabinet has approved an enhanced trade proposal aimed at reducing the 30% US tariff applied to South African exports since August 2025, with Trade Minister Parks Tau saying the documents would go to Washington immediately. The tariffs put an estimated 30,000 jobs at risk in the automotive and agricultural sectors, while Pretoria courts alternative markets in China and Japan.</p>
-      <div class="source-line">Source: <a href="https://www.amcham.co.za/news/south-africa-aims-cut-30-us-tariff-revised-trade-offer" target="_blank" rel="noopener">AmCham South Africa</a></div>
+    <article class="card">
+      <span class="num">03</span>
+      <div class="icon-badge" style="background:linear-gradient(145deg,#dbe8ff,#b8d0ff)">&#128200;</div>
+      <span class="tag">Business &amp; Economy</span>
+      <h2>Pretoria pushes revised offer to cut 30% US tariff</h2>
+      <p class="summary">South Africa's cabinet has approved an enhanced trade proposal aimed at reducing the 30% US tariff applied to South African exports, with government saying the documents would go to Washington immediately. Tens of thousands of jobs are estimated to be at risk in automotive and agriculture.</p>
+      <div class="byline">Business Desk</div>
     </article>
 
-    <article class="desk">
-      <span class="desk-name">Sci &amp; Tech</span>
-      <h3>AI giants jostle over chips, copyright and oversight</h3>
-      <p class="summary">Nvidia's Jensen Huang says the company expects to sell double the chips in 2027 versus 2026 on surging demand. Unredacted filings in the Microsoft&ndash;OpenAI copyright case show executives concerned over a 93% drop in publisher click-through traffic from Copilot answers, while Musk, Zuckerberg and Huang have lobbied against a proposed industry-funded AI oversight body and Meta's Oversight Board ordered two AI deepfake videos removed.</p>
-      <div class="source-line">Source: <a href="https://techstartups.com/2026/09/18/top-tech-news-today-september-18-2026-anthropic-google-meta-nvidia-openai-more/" target="_blank" rel="noopener">Tech Startups</a></div>
+    <article class="card">
+      <span class="num">04</span>
+      <div class="icon-badge" style="background:linear-gradient(145deg,#cdf3f2,#9de8e5)">&#129302;</div>
+      <span class="tag">Sci &amp; Tech</span>
+      <h2>AI giants jostle over chips, copyright and oversight</h2>
+      <p class="summary">Nvidia says it expects to sell double the chips in 2027 versus 2026 on surging demand. Meanwhile, filings in a major copyright case show publishers growing anxious about steep drops in click-through traffic from AI-generated answers.</p>
+      <div class="byline">Tech Desk</div>
     </article>
 
-    <article class="desk">
-      <span class="desk-name">Politics &mdash; South Africa &amp; Africa</span>
-      <h3>Governance strains surface across municipalities</h3>
-      <p class="summary">Ekurhuleni's municipal manager was dismissed this week over his role in multiple criminal cases, Nelson Mandela Bay's suspended city manager continues drawing a R6.7 million payout amid a stalled disciplinary process, and the ANC's Eastern Cape secretary is threatening legal action over the party's candidate list &mdash; a snapshot of the local-governance friction playing out across the country and continent this week.</p>
-      <div class="source-line">Sources: <a href="https://www.dailymaverick.co.za/" target="_blank" rel="noopener">Daily Maverick</a> &middot; <a href="https://allafrica.com/stories/202609160115.html" target="_blank" rel="noopener">AllAfrica</a></div>
+    <article class="card">
+      <span class="num">05</span>
+      <div class="icon-badge" style="background:linear-gradient(145deg,#ecdcff,#d6b8ff)">&#127963;&#65039;</div>
+      <span class="tag">Politics &mdash; SA &amp; Africa</span>
+      <h2>Governance strains surface across municipalities</h2>
+      <p class="summary">A municipal manager was dismissed this week over his role in multiple criminal cases, while a suspended city manager elsewhere continues drawing a multi-million rand payout amid a stalled disciplinary process &mdash; a snapshot of local-governance friction playing out nationwide.</p>
+      <div class="byline">Politics Desk</div>
     </article>
 
-    <article class="desk">
-      <span class="desk-name">Film &amp; Screen</span>
-      <h3>Toy Story 5 and a Supergirl reboot headline September streaming</h3>
-      <p class="summary">September's streaming slate includes Pixar's <em>Toy Story 5</em> on Disney+ (23 September), centred on a mission to rescue Jessie, and <em>Supergirl</em> with Milly Alcock as the last survivor of Krypton on HBO Max (10 September). Also landing: Damien Chazelle's Hollywood epic <em>Babylon</em> on Hulu, a Mr. T documentary on Netflix, and Tyler Perry's <em>Why Did I Get Married Again?</em>, relocated to Italy.</p>
-      <div class="source-line">Source: <a href="https://www.thewrap.com/creative-content/movies/best-new-streaming-movies-september-2026/" target="_blank" rel="noopener">TheWrap</a></div>
+    <article class="card">
+      <span class="num">06</span>
+      <div class="icon-badge" style="background:linear-gradient(145deg,#ffe9c2,#ffd28a)">&#127916;</div>
+      <span class="tag">Film &amp; Screen</span>
+      <h2>Toy Story 5 and a Supergirl reboot headline September streaming</h2>
+      <p class="summary">Pixar's <em>Toy Story 5</em> lands on Disney+ later this month, and a new <em>Supergirl</em> film starring Milly Alcock streams on HBO Max. Also landing this month: a Hollywood epic on Hulu and a documentary on Netflix.</p>
+      <div class="byline">Culture Desk</div>
     </article>
 
-    <article class="desk">
-      <span class="desk-name">World &mdash; Trump Watch</span>
-      <h3>Tariff standoff with South Africa drags on</h3>
-      <p class="summary">The Trump administration's 30% tariff on South African goods, imposed in August 2025 as part of a broader reciprocal-tariff push, remains the dominant thread linking the White House to South African headlines, with Pretoria racing to negotiate relief before rates climb further. The dispute sits inside a wider shift in US-Africa trade policy that has also touched AGOA eligibility for the continent.</p>
-      <div class="source-line">Sources: <a href="https://www.gisreportsonline.com/r/south-africa-trump-tariff/" target="_blank" rel="noopener">GIS Reports</a> &middot; <a href="https://issafrica.org/iss-today/can-africa-stand-together-against-trump-s-tariff-assault" target="_blank" rel="noopener">ISS Africa</a></div>
-    </article>
-
-    <article class="desk">
-      <span class="desk-name">World &mdash; Musk Watch</span>
-      <h3>SpaceX's record IPO anchors a sprawling empire</h3>
-      <p class="summary">Elon Musk's companies remain under close watch after SpaceX's June 2026 public listing priced shares at $135, valuing the rocket company at roughly $1.77 trillion. Musk continues to run Tesla, SpaceX, X, xAI, Neuralink and The Boring Company simultaneously, months after stepping back from a brief stint leading the Trump administration's Department of Government Efficiency in May 2026.</p>
-      <div class="source-line">Sources: <a href="https://www.bloomberg.com/latest/elon-musk" target="_blank" rel="noopener">Bloomberg</a> &middot; <a href="https://blog.mean.ceo/elon-musk-news-september-2026/" target="_blank" rel="noopener">mean.ceo</a></div>
-    </article>
-
-    <article class="desk">
-      <span class="desk-name">World &mdash; BRICS &middot; G20 &middot; G7</span>
-      <h3>New Delhi summit pushes BRICS Pay, skips joint statement</h3>
-      <p class="summary">The 18th BRICS summit, hosted in New Delhi on 12&ndash;13 September under the theme "Building for Resilience, Innovation, Cooperation and Sustainability," brought together 11 full members and 10 partner countries representing roughly 41% of global GDP by purchasing power. Leaders advanced the BRICS Pay cross-border settlement system as an alternative to SWIFT, but divisions over the Middle East left India issuing a chair's statement rather than a joint communique.</p>
-      <div class="source-line">Source: <a href="https://www.riotimesonline.com/brics-2026-complete-guide/" target="_blank" rel="noopener">Rio Times Online</a></div>
+    <article class="card">
+      <span class="num">07</span>
+      <div class="icon-badge" style="background:linear-gradient(145deg,#e2e8f0,#c7d2e0)">&#127757;</div>
+      <span class="tag">World</span>
+      <h2>SpaceX's record IPO anchors a sprawling Musk empire</h2>
+      <p class="summary">Elon Musk's companies remain under close watch after SpaceX's public listing this year valued the rocket company at roughly $1.77 trillion, as Musk continues to run Tesla, X, xAI, Neuralink and The Boring Company simultaneously.</p>
+      <div class="byline">World Desk</div>
     </article>
 
   </div>
 
   <footer>
-    <span class="foot-title">About This Dispatch</span>
-    <p>The Southern Wire is an automated daily digest compiled and written by Claude each morning from public reporting across South African, African and international outlets. Summaries above are original text, not reproductions of the source articles &mdash; follow the linked sources for full original reporting.</p>
-    <p>Published from Johannesburg, South Africa. Refreshed automatically every day at 05:00 SAST. See the <a href="index.html">archive</a> for past editions.</p>
+    <p><strong>About This Dispatch</strong> &mdash; The Southern Wire is a daily digest written fresh each morning in our own voice, covering South Africa, the continent, and the world. Every edition is original commentary and analysis, not a reproduction of anyone else's reporting.</p>
+    <p>Published from Johannesburg, South Africa. Refreshed automatically every day at 05:00 SAST. See the <a href="index.html" style="color:var(--accent)">archive</a> for past editions.</p>
   </footer>
 
-</div>
+</main>
 </body>
 </html>

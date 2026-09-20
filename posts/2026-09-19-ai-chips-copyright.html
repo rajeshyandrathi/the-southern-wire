@@ -24,6 +24,8 @@
   main{padding-block:36px 60px;}
   .back-link{font-size:0.85rem;color:var(--text-dim);margin-bottom:20px;display:inline-block;}
   .back-link:hover{color:var(--accent);}
+  .cover{width:100%;aspect-ratio:2.2/1;border-radius:3px;margin-bottom:20px;position:relative;overflow:hidden;}
+  .cover::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 14px),radial-gradient(circle at 78% 22%, rgba(255,255,255,0.35), transparent 45%);}
   .tag{display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:3px 9px;border-radius:2px;margin-bottom:12px;}
   h1{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.1;letter-spacing:-0.005em;margin:0 0 16px;color:var(--text);}
   .byline{font-size:0.85rem;color:var(--text-dim);font-weight:600;font-style:italic;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);}
@@ -43,7 +45,8 @@
 
 <main class="wrap" style="border-top:3px solid #0ea5b0">
   <a class="back-link" href="../index.html">&larr; Back to today's edition</a>
-  <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+    <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+<span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
   <h1>AI giants jostle over chips, copyright and oversight</h1>
   <div class="byline">Tech Desk<span class="sep">&middot;</span>Saturday, 19 September 2026</div>
 

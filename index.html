@@ -130,6 +130,23 @@
     margin-bottom:12px;
   }
 
+  .cover{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:3px;
+    margin-bottom:16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 14px),
+      radial-gradient(circle at 78% 22%, rgba(255,255,255,0.35), transparent 45%);
+  }
+  .lead .cover{aspect-ratio:2.2/1;}
+
   .byline{
     font-size:0.76rem;
     color:var(--text-dim);
@@ -246,6 +263,7 @@
 
   <section class="lead">
     <a class="lead-link" href="posts/2026-09-20-ekurhuleni-gbv-reckoning.html" aria-label="Read full story"></a>
+    <div class="cover" style="background:linear-gradient(135deg,#e0392c,#8f1f16)"></div>
     <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
     <h1>Ekurhuleni serial killings force a national reckoning on violence against women</h1>
     <p class="dek">A ninth body in two months has pushed South Africa's gender-based violence crisis onto the world stage, with international media now watching Ekurhuleni as closely as Pretoria.</p>
@@ -257,6 +275,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-springboks-seal-historic-series.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
       <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
       <h2>Springboks end 50-year wait, seal series win over All Blacks in Baltimore</h2>
       <p class="summary">A 43-28 demolition job in Baltimore sealed a 3-1 series win over New Zealand — South Africa's first series victory over the All Blacks since 1976.</p>
@@ -265,6 +284,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-proteas-odi-squad-australia.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
       <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
       <h2>Bavuma names full-strength Proteas squad as Australia arrive for high-stakes ODI series</h2>
       <p class="summary">Temba Bavuma leads a settled squad into three ODIs against Australia this month, with Quinton de Kock and Corbin Baartman both back in the fold.</p>
@@ -273,6 +293,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-proteas-women-zimbabwe-series.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
       <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
       <h2>Proteas Women open historic first T20I tour of Zimbabwe with statement wins</h2>
       <p class="summary">South Africa's women cracked back-to-back victories to open their first-ever bilateral T20 series in Zimbabwe, with spinner Nthabiseng Nini among the standout performers.</p>
@@ -281,6 +302,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-jse-earnings-season-winners-losers.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
       <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
       <h2>Gold miners power JSE to record highs as earnings season splits winners from losers</h2>
       <p class="summary">African Rainbow Minerals and Harmony Gold posted blowout profits this week, even as Telkom, MTN and Aspen slid on profit-taking.</p>
@@ -289,6 +311,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-rand-sarb-rate-decision.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
       <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
       <h2>Rand holds its breath as SARB weighs a rate call with inflation finally cooling</h2>
       <p class="summary">A stronger dollar and pricier oil have kept the rand on edge, but cooling inflation is complicating the central bank's next move.</p>
@@ -297,6 +320,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-durban-port-congestion-navis.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
       <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
       <h2>Durban's port congestion deepens after a rocky switch to new terminal software</h2>
       <p class="summary">A botched rollout of new operating software at Durban's Gateway Terminal has piled up container ships offshore for weeks.</p>
@@ -305,6 +329,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-madlanga-commission-final-extension.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
       <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
       <h2>Ramaphosa grants the Madlanga Commission one more — and reportedly final — extension</h2>
       <p class="summary">The judicial inquiry into police corruption now has until January 2027 to deliver its report, its third deadline extension.</p>
@@ -313,6 +338,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-local-elections-gnu-test.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
       <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
       <h2>2026 local elections shape up as a make-or-break test for the GNU</h2>
       <p class="summary">With polls suggesting the ANC could slip toward 30% in Gauteng and KwaZulu-Natal, the coming local vote looks set to reshape South African coalition politics.</p>
@@ -321,6 +347,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-morocco-parliamentary-election.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
       <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
       <h2>Morocco heads to the polls in its first parliamentary election since last year's youth protests</h2>
       <p class="summary">Voters cast ballots on 23 September in a vote widely read as a referendum on the government's response to a wave of youth-led unrest.</p>
@@ -329,6 +356,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-ai-labs-safety-coordination.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
       <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
       <h2>OpenAI, Anthropic and Google DeepMind deepen ties on AI safety as pressure mounts</h2>
       <p class="summary">The industry's biggest rivals are quietly building the scaffolding for an AI standards body, even as they keep racing each other on every other front.</p>
@@ -337,6 +365,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-plugin4shell-ai-coding-vulnerability.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
       <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
       <h2>Plugin4Shell exposes AI coding assistants to a zero-click attack researchers call a wake-up call</h2>
       <p class="summary">A newly disclosed vulnerability lets attackers slip malicious code past signature checks in some of the most widely used AI coding tools.</p>
@@ -345,6 +374,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-toy-story-5-backrooms-streaming.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#f59e0b,#b56d00)"></div>
       <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
       <h2>Toy Story 5 and A24's biggest hit ever headline a loaded month of streaming</h2>
       <p class="summary">Two of the year's biggest box-office stories — a $1.13-billion Pixar sequel and A24's highest-grossing film ever — land on streaming in the same month.</p>
@@ -353,6 +383,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-afrikaans-cinema-wave.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#f59e0b,#b56d00)"></div>
       <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
       <h2>A fresh wave of Afrikaans-language films is filling South African cinemas</h2>
       <p class="summary">From a landmine drama to a family fantasy adventure atop Table Mountain, local filmmakers are having a moment at the local box office.</p>
@@ -361,6 +392,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-drc-m23-ebola-crisis.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
       <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
       <h2>DRC's crisis deepens as M23 tightens its grip and Ebola disrupts the new school year</h2>
       <p class="summary">Millions of Congolese children returned to class this month even as rebel control of major cities and a spreading Ebola outbreak strain an already fragile state.</p>
@@ -369,6 +401,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-sudan-aid-funding-crisis.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
       <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
       <h2>Sudan's humanitarian catastrophe nears a breaking point as aid funding runs dry</h2>
       <p class="summary">With 19.5 million people facing crisis-level hunger, UN agencies warn that critical supplies could run out within weeks.</p>
@@ -377,6 +410,7 @@
 
     <article class="card">
       <a class="card-link" href="posts/2026-09-20-drakensberg-spring-snow.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0284c7,#045078)"></div>
       <span class="tag" style="color:#0284c7;background:#e0f2fe">Weather &amp; Snow</span>
       <h2>Rare spring snow blankets the Drakensberg as a powerful cut-off low sweeps the country</h2>
       <p class="summary">A cut-off low dumped heavy snow on the Southern Drakensberg and Lesotho while dragging cold, wet, windy weather across the Cape provinces.</p>

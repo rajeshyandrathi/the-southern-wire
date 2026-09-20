@@ -116,21 +116,8 @@
     display:inline-flex;align-items:center;
     font-size:0.72rem;font-weight:700;
     text-transform:uppercase;letter-spacing:0.05em;
-    color:var(--accent);
-    background:var(--accent-soft);
     padding:4px 10px;border-radius:20px;
     margin-bottom:14px;
-  }
-
-  .icon-badge{
-    width:56px;height:56px;border-radius:18px;
-    display:flex;align-items:center;justify-content:center;
-    font-size:28px;line-height:1;
-    margin-bottom:14px;
-    box-shadow:0 6px 16px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.5);
-  }
-  .icon-badge.lead-badge{
-    width:76px;height:76px;border-radius:22px;font-size:40px;
   }
 
   .byline{
@@ -146,15 +133,16 @@
 
   .lead{
     position:relative;
-    padding-bottom:40px;
+    padding:24px 0 40px;
     margin-bottom:40px;
     border-bottom:1px solid var(--border);
+    border-top:4px solid var(--accent);
     transition:opacity 0.15s ease;
   }
   .lead:hover{opacity:0.88;}
   .lead .num{
     position:absolute;
-    top:-6px;right:0;
+    top:10px;right:0;
     font-family:'Inter Tight',sans-serif;
     font-weight:900;
     font-size:5rem;
@@ -200,8 +188,9 @@
   .card{
     position:relative;
     background:var(--bg);
-    padding:24px;
+    padding:22px 24px 24px;
     display:flex;flex-direction:column;
+    border-top:3px solid var(--accent);
     transition:background 0.15s ease;
   }
   .card:hover{background:var(--surface);}
@@ -270,11 +259,10 @@
     </ol>
   </section>
 
-  <section class="lead">
+  <section class="lead" style="border-top-color:#e0392c">
     <a class="lead-link" href="posts/2026-09-19-ekurhuleni-serial-killings.html" aria-label="Read full story"></a>
     <span class="num">01</span>
-    <div class="icon-badge lead-badge" style="background:linear-gradient(145deg,#ffd9d4,#ffb3a8)">&#128680;</div>
-    <span class="tag">Crime &amp; Courts</span>
+    <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
     <h1>Fear grips Ekurhuleni as ninth body found in serial killings probe</h1>
     <p class="dek">Nine women have been found dead across Ekurhuleni, east of Johannesburg, since the first body was discovered in Kempton Park in mid-July. Police have named four of the victims and are holding at least one suspect, while investigators work to establish whether one person or several are responsible. President Cyril Ramaphosa has ordered police to leave "no stone unturned," and a sizeable reward has been offered for information leading to further arrests.</p>
     <div class="byline">The Southern Wire Desk<span class="sep">&middot;</span>Johannesburg</div>
@@ -283,61 +271,55 @@
 
   <div class="grid">
 
-    <article class="card">
+    <article class="card" style="border-top-color:#1f9d55">
       <a class="card-link" href="posts/2026-09-19-bok-squad.html" aria-label="Read full story"></a>
       <span class="num">02</span>
-      <div class="icon-badge" style="background:linear-gradient(145deg,#d4f7e3,#a8f0c6)">&#127945;</div>
-      <span class="tag">Sport</span>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
       <h2>Erasmus splits Bok squad ahead of rivalry series opener</h2>
       <p class="summary">Springbok coach Rassie Erasmus has named a 43-player squad for the Rugby Greatest Rivalry series against New Zealand, opening at Ellis Park. Locks Eben Etzebeth and Lood de Jager return from injury alongside flyhalf Sacha Feinberg-Mngomezulu, with captain Siya Kolisi also back.</p>
       <div class="byline">Sport Desk</div>
     </article>
 
-    <article class="card">
+    <article class="card" style="border-top-color:#2f6fed">
       <a class="card-link" href="posts/2026-09-19-us-tariff-offer.html" aria-label="Read full story"></a>
       <span class="num">03</span>
-      <div class="icon-badge" style="background:linear-gradient(145deg,#dbe8ff,#b8d0ff)">&#128200;</div>
-      <span class="tag">Business &amp; Economy</span>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
       <h2>Pretoria pushes revised offer to cut 30% US tariff</h2>
       <p class="summary">South Africa's cabinet has approved an enhanced trade proposal aimed at reducing the 30% US tariff applied to South African exports, with government saying the documents would go to Washington immediately. Tens of thousands of jobs are estimated to be at risk in automotive and agriculture.</p>
       <div class="byline">Business Desk</div>
     </article>
 
-    <article class="card">
+    <article class="card" style="border-top-color:#0ea5b0">
       <a class="card-link" href="posts/2026-09-19-ai-chips-copyright.html" aria-label="Read full story"></a>
       <span class="num">04</span>
-      <div class="icon-badge" style="background:linear-gradient(145deg,#cdf3f2,#9de8e5)">&#129302;</div>
-      <span class="tag">Sci &amp; Tech</span>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
       <h2>AI giants jostle over chips, copyright and oversight</h2>
       <p class="summary">Nvidia says it expects to sell double the chips in 2027 versus 2026 on surging demand. Meanwhile, filings in a major copyright case show publishers growing anxious about steep drops in click-through traffic from AI-generated answers.</p>
       <div class="byline">Tech Desk</div>
     </article>
 
-    <article class="card">
+    <article class="card" style="border-top-color:#8b5cf6">
       <a class="card-link" href="posts/2026-09-19-municipal-governance.html" aria-label="Read full story"></a>
       <span class="num">05</span>
-      <div class="icon-badge" style="background:linear-gradient(145deg,#ecdcff,#d6b8ff)">&#127963;&#65039;</div>
-      <span class="tag">Politics &mdash; SA &amp; Africa</span>
+      <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
       <h2>Governance strains surface across municipalities</h2>
       <p class="summary">A municipal manager was dismissed this week over his role in multiple criminal cases, while a suspended city manager elsewhere continues drawing a multi-million rand payout amid a stalled disciplinary process &mdash; a snapshot of local-governance friction playing out nationwide.</p>
       <div class="byline">Politics Desk</div>
     </article>
 
-    <article class="card">
+    <article class="card" style="border-top-color:#f59e0b">
       <a class="card-link" href="posts/2026-09-19-streaming-september.html" aria-label="Read full story"></a>
       <span class="num">06</span>
-      <div class="icon-badge" style="background:linear-gradient(145deg,#ffe9c2,#ffd28a)">&#127916;</div>
-      <span class="tag">Film &amp; Screen</span>
+      <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
       <h2>Toy Story 5 and a Supergirl reboot headline September streaming</h2>
       <p class="summary">Pixar's <em>Toy Story 5</em> lands on Disney+ later this month, and a new <em>Supergirl</em> film starring Milly Alcock streams on HBO Max. Also landing this month: a Hollywood epic on Hulu and a documentary on Netflix.</p>
       <div class="byline">Culture Desk</div>
     </article>
 
-    <article class="card">
+    <article class="card" style="border-top-color:#64748b">
       <a class="card-link" href="posts/2026-09-19-musk-empire.html" aria-label="Read full story"></a>
       <span class="num">07</span>
-      <div class="icon-badge" style="background:linear-gradient(145deg,#e2e8f0,#c7d2e0)">&#127757;</div>
-      <span class="tag">World</span>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
       <h2>SpaceX's record IPO anchors a sprawling Musk empire</h2>
       <p class="summary">Elon Musk's companies remain under close watch after SpaceX's public listing this year valued the rocket company at roughly $1.77 trillion, as Musk continues to run Tesla, X, xAI, Neuralink and The Boring Company simultaneously.</p>
       <div class="byline">World Desk</div>
@@ -347,7 +329,7 @@
 
   <footer>
     <p><strong>About This Dispatch</strong> &mdash; The Southern Wire is a daily digest written fresh each morning in our own voice, covering South Africa, the continent, and the world. Every edition is original commentary and analysis, not a reproduction of anyone else's reporting.</p>
-    <p>Published from Johannesburg, South Africa. Refreshed automatically every day at 05:00 SAST. See the <a href="archive/index.html" style="color:var(--accent)">archive</a> for past editions.</p>
+    <p>Published from Johannesburg, South Africa. See the <a href="archive/index.html" style="color:var(--accent)">archive</a> for past editions.</p>
   </footer>
 
 </main>

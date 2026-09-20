@@ -8,10 +8,10 @@
 <style>
   :root{
     --bg:#ffffff;
-    --surface:#f5f8fb;
-    --text:#0b1220;
-    --text-dim:#5b6b7a;
-    --border:#e4eaf0;
+    --surface:#f7f5f1;
+    --text:#141414;
+    --text-dim:#5c5c5c;
+    --border:rgba(0,0,0,0.13);
     --accent:#2f8fe0;
     --accent-soft:#e3f2fd;
   }
@@ -19,19 +19,19 @@
     :root:not([data-theme="light"]){
       --bg:#0b0f14;
       --surface:#12181f;
-      --text:#f2f5f8;
-      --text-dim:#8a97a3;
-      --border:#232b34;
+      --text:#f2f2f0;
+      --text-dim:#a3a3a0;
+      --border:rgba(255,255,255,0.15);
       --accent:#6cc0ff;
       --accent-soft:#122a3d;
     }
   }
   :root[data-theme="dark"]{
-    --bg:#0b0f14; --surface:#12181f; --text:#f2f5f8; --text-dim:#8a97a3;
-    --border:#232b34; --accent:#6cc0ff; --accent-soft:#122a3d;
+    --bg:#0b0f14; --surface:#12181f; --text:#f2f2f0; --text-dim:#a3a3a0;
+    --border:rgba(255,255,255,0.15); --accent:#6cc0ff; --accent-soft:#122a3d;
   }
 
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
 
   *{box-sizing:border-box;}
   body{
@@ -42,156 +42,171 @@
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;text-decoration:none;}
-  html{scroll-behavior:smooth;}
-  .wrap{max-width:1120px;margin-inline:auto;padding-inline:24px;}
+  .wrap{max-width:1140px;margin-inline:auto;padding-inline:24px;}
 
-  header.topbar{
-    border-bottom:3px solid var(--accent);
-    position:sticky;top:0;
-    background:var(--bg);
-    z-index:10;
+  .util-bar{
+    border-bottom:1px solid var(--border);
+    font-size:0.72rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--text-dim);
   }
-  .topbar-inner{
-    display:flex;align-items:center;justify-content:space-between;
-    padding-block:14px;
-    gap:12px;flex-wrap:wrap;
+  .util-bar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-block:8px;flex-wrap:wrap;gap:8px;
+  }
+  .util-bar a{color:var(--text-dim);}
+  .util-bar a:hover{color:var(--accent);}
+
+  header.masthead{
+    text-align:center;
+    padding-block:22px 14px;
   }
   .brand{
-    font-weight:900;
-    font-size:1.3rem;
-    letter-spacing:-0.03em;
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2.1rem, 5.5vw, 3.2rem);
+    letter-spacing:-0.01em;
   }
   .brand .dot{color:var(--accent);}
-  .topbar-meta{
-    font-size:0.78rem;
-    color:var(--text-dim);
+  .tagline{
+    font-size:0.76rem;
     font-weight:600;
-    display:flex;gap:16px;align-items:center;flex-wrap:wrap;
-    text-transform:uppercase;letter-spacing:0.03em;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--text-dim);
+    margin-top:4px;
   }
-  .topbar-meta a{color:var(--text-dim);}
-  .topbar-meta a:hover{color:var(--accent);}
 
   nav.deskrow{
-    display:flex;gap:4px;overflow-x:auto;
-    border-top:1px solid var(--border);
-    font-size:0.76rem;font-weight:700;
-    text-transform:uppercase;letter-spacing:0.03em;
+    border-top:1px solid var(--text);
+    border-bottom:1px solid var(--border);
+    display:flex;justify-content:center;gap:2px;
+    overflow-x:auto;
+    font-size:0.78rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.04em;
     white-space:nowrap;
   }
   nav.deskrow a{
-    color:var(--text-dim);
-    padding:9px 12px;
+    color:var(--text);
+    padding:11px 16px;
     border-bottom:2px solid transparent;
   }
-  nav.deskrow a:hover{color:var(--text);border-bottom-color:var(--accent);}
+  nav.deskrow a:hover{color:var(--accent);border-bottom-color:var(--accent);}
 
-  main{padding-block:32px 64px;}
+  main{padding-block:30px 64px;}
 
   .top-stories{
+    border:1px solid var(--border);
+    padding:14px 18px;
+    margin-bottom:34px;
     display:flex;
-    align-items:center;
+    align-items:baseline;
     gap:20px;
     flex-wrap:wrap;
-    padding-bottom:18px;
-    margin-bottom:28px;
-    border-bottom:1px solid var(--border);
   }
   .top-stories .ts-label{
-    font-size:0.72rem;font-weight:800;
-    text-transform:uppercase;letter-spacing:0.08em;
-    color:#fff;
-    background:var(--accent);
-    padding:4px 10px;
-    border-radius:3px;
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:0.9rem;font-weight:700;
+    color:var(--accent);
     white-space:nowrap;
   }
   .top-stories ol{
     list-style:none;margin:0;padding:0;
-    display:flex;gap:24px;flex-wrap:wrap;
+    display:flex;gap:22px;flex-wrap:wrap;
     flex:1;
   }
   .top-stories li{
-    font-size:0.9rem;font-weight:700;
+    font-size:0.88rem;font-weight:600;
   }
   .top-stories a:hover{color:var(--accent);}
 
-  .eyebrow{
-    display:block;
-    font-size:0.72rem;font-weight:800;
-    text-transform:uppercase;letter-spacing:0.07em;
-    margin-bottom:8px;
+  .tag{
+    display:inline-block;
+    font-size:0.68rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.05em;
+    padding:3px 9px;
+    border-radius:2px;
+    margin-bottom:12px;
   }
 
   .byline{
     font-size:0.76rem;
     color:var(--text-dim);
     font-weight:600;
+    font-style:italic;
   }
-  .byline .sep{margin:0 6px;opacity:0.5;}
+  .byline .sep{margin:0 6px;opacity:0.5;font-style:normal;}
   .read-more{
-    font-size:0.78rem;font-weight:800;color:var(--accent);
+    font-size:0.78rem;font-weight:700;color:var(--accent);
     margin-top:12px;display:inline-block;
-    text-transform:uppercase;letter-spacing:0.03em;
   }
 
   .lead{
     position:relative;
-    padding-bottom:36px;
-    margin-bottom:36px;
-    border-bottom:1px solid var(--border);
+    padding-bottom:32px;
+    margin-bottom:34px;
+    border-bottom:3px double var(--text);
   }
   .lead-link{position:absolute;inset:0;z-index:1;}
   .lead h1{
-    font-weight:900;
-    font-size:clamp(2.1rem, 5vw, 3.4rem);
-    line-height:1.02;
-    letter-spacing:-0.03em;
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2rem, 4.8vw, 3.1rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
     margin:0 0 14px;
-    max-width:18ch;
+    max-width:20ch;
   }
   .lead p.dek{
-    font-size:1.15rem;
-    line-height:1.5;
+    font-size:1.1rem;
+    line-height:1.55;
     color:var(--text-dim);
     max-width:62ch;
     margin:0 0 14px;
     font-weight:400;
   }
 
-  .river{
+  .grid{
     display:grid;
-    grid-template-columns:1fr;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
     border-top:1px solid var(--border);
+    border-left:1px solid var(--border);
   }
-  @media (min-width:760px){
-    .river{grid-template-columns:1fr 1fr; column-gap:56px;}
+  @media (max-width:860px){
+    .grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr;}
   }
   .card{
     position:relative;
-    padding:22px 0;
+    padding:22px 22px 24px;
+    border-right:1px solid var(--border);
     border-bottom:1px solid var(--border);
   }
   .card-link{position:absolute;inset:0;z-index:1;}
   .card h2{
-    font-weight:800;
-    font-size:1.2rem;
-    line-height:1.22;
-    letter-spacing:-0.015em;
-    margin:0 0 8px;
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:1.22rem;
+    line-height:1.25;
+    letter-spacing:-0.005em;
+    margin:0 0 10px;
   }
   .card:hover h2{color:var(--accent);}
   .card p.summary{
-    font-size:0.94rem;
+    font-size:0.9rem;
     line-height:1.5;
     color:var(--text-dim);
-    margin:0 0 10px;
+    margin:0 0 12px;
   }
 
   footer{
-    margin-top:24px;
-    padding-top:24px;
-    border-top:3px solid var(--accent);
+    margin-top:26px;
+    padding-top:22px;
+    border-top:3px double var(--text);
     font-size:0.82rem;
     color:var(--text-dim);
     line-height:1.7;
@@ -201,20 +216,22 @@
 </style>
 </head>
 <body>
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <div class="brand">THE SOUTHERN<span class="dot">.</span>WIRE</div>
-    <div class="topbar-meta">
-      <span id="today-date">Saturday, 19 September 2026</span>
-      <a href="../index.html">Today &rarr;</a>
-    </div>
-  </div>
+
+<div class="util-bar">
   <div class="wrap">
-    <nav class="deskrow">
-      <a href="../crime.html">Crime</a><a href="../sport.html">Sport</a><a href="../business.html">Business</a><a href="../politics.html">Politics</a><a href="../tech.html">Tech</a><a href="../screen.html">Screen</a><a href="../world.html">World</a><a href="../weather.html">Weather</a>
-    </nav>
+    <span id="today-date">Saturday, 19 September 2026</span>
+    <a href="../index.html">Today &rarr;</a>
   </div>
+</div>
+
+<header class="masthead">
+  <div class="brand">The Southern<span class="dot">.</span>Wire</div>
+  <div class="tagline">South Africa &middot; Africa &middot; The World</div>
 </header>
+
+<nav class="deskrow">
+  <a href="../crime.html">Crime</a><a href="../sport.html">Sport</a><a href="../business.html">Business</a><a href="../politics.html">Politics</a><a href="../tech.html">Tech</a><a href="../screen.html">Screen</a><a href="../world.html">World</a><a href="../weather.html">Weather</a>
+</nav>
 
 <main class="wrap">
 
@@ -229,18 +246,18 @@
 
   <section class="lead">
     <a class="lead-link" href="../posts/2026-09-19-ekurhuleni-serial-killings.html" aria-label="Read full story"></a>
-    <span class="eyebrow" style="color:#e0392c">Crime &amp; Courts</span>
+    <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
     <h1>Fear grips Ekurhuleni as ninth body found in serial killings probe</h1>
     <p class="dek">Nine women have been found dead across Ekurhuleni, east of Johannesburg, since the first body was discovered in Kempton Park in mid-July. Police have named four of the victims and are holding at least one suspect, while investigators work to establish whether one person or several are responsible. President Cyril Ramaphosa has ordered police to leave "no stone unturned," and a sizeable reward has been offered for information leading to further arrests.</p>
     <div class="byline">The Southern Wire Desk<span class="sep">&middot;</span>Johannesburg</div>
     <span class="read-more">Read the full story &rarr;</span>
   </section>
 
-  <div class="river">
+  <div class="grid">
 
     <article class="card">
       <a class="card-link" href="../posts/2026-09-19-bok-squad.html" aria-label="Read full story"></a>
-      <span class="eyebrow" style="color:#1f9d55">Sport</span>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
       <h2>Erasmus splits Bok squad ahead of rivalry series opener</h2>
       <p class="summary">Springbok coach Rassie Erasmus has named a 43-player squad for the Rugby Greatest Rivalry series against New Zealand, opening at Ellis Park. Locks Eben Etzebeth and Lood de Jager return from injury alongside flyhalf Sacha Feinberg-Mngomezulu, with captain Siya Kolisi also back.</p>
       <div class="byline">Sport Desk</div>
@@ -248,7 +265,7 @@
 
     <article class="card">
       <a class="card-link" href="../posts/2026-09-19-us-tariff-offer.html" aria-label="Read full story"></a>
-      <span class="eyebrow" style="color:#2f6fed">Business &amp; Economy</span>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
       <h2>Pretoria pushes revised offer to cut 30% US tariff</h2>
       <p class="summary">South Africa's cabinet has approved an enhanced trade proposal aimed at reducing the 30% US tariff applied to South African exports, with government saying the documents would go to Washington immediately. Tens of thousands of jobs are estimated to be at risk in automotive and agriculture.</p>
       <div class="byline">Business Desk</div>
@@ -256,7 +273,7 @@
 
     <article class="card">
       <a class="card-link" href="../posts/2026-09-19-ai-chips-copyright.html" aria-label="Read full story"></a>
-      <span class="eyebrow" style="color:#0ea5b0">Sci &amp; Tech</span>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
       <h2>AI giants jostle over chips, copyright and oversight</h2>
       <p class="summary">Nvidia says it expects to sell double the chips in 2027 versus 2026 on surging demand. Meanwhile, filings in a major copyright case show publishers growing anxious about steep drops in click-through traffic from AI-generated answers.</p>
       <div class="byline">Tech Desk</div>
@@ -264,7 +281,7 @@
 
     <article class="card">
       <a class="card-link" href="../posts/2026-09-19-municipal-governance.html" aria-label="Read full story"></a>
-      <span class="eyebrow" style="color:#8b5cf6">Politics &mdash; SA &amp; Africa</span>
+      <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
       <h2>Governance strains surface across municipalities</h2>
       <p class="summary">A municipal manager was dismissed this week over his role in multiple criminal cases, while a suspended city manager elsewhere continues drawing a multi-million rand payout amid a stalled disciplinary process &mdash; a snapshot of local-governance friction playing out nationwide.</p>
       <div class="byline">Politics Desk</div>
@@ -272,7 +289,7 @@
 
     <article class="card">
       <a class="card-link" href="../posts/2026-09-19-streaming-september.html" aria-label="Read full story"></a>
-      <span class="eyebrow" style="color:#f59e0b">Film &amp; Screen</span>
+      <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
       <h2>Toy Story 5 and a Supergirl reboot headline September streaming</h2>
       <p class="summary">Pixar's <em>Toy Story 5</em> lands on Disney+ later this month, and a new <em>Supergirl</em> film starring Milly Alcock streams on HBO Max. Also landing this month: a Hollywood epic on Hulu and a documentary on Netflix.</p>
       <div class="byline">Culture Desk</div>
@@ -280,7 +297,7 @@
 
     <article class="card">
       <a class="card-link" href="../posts/2026-09-19-musk-empire.html" aria-label="Read full story"></a>
-      <span class="eyebrow" style="color:#64748b">World</span>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
       <h2>SpaceX's record IPO anchors a sprawling Musk empire</h2>
       <p class="summary">Elon Musk's companies remain under close watch after SpaceX's public listing this year valued the rocket company at roughly $1.77 trillion, as Musk continues to run Tesla, X, xAI, Neuralink and The Boring Company simultaneously.</p>
       <div class="byline">World Desk</div>

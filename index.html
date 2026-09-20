@@ -42,6 +42,7 @@
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;text-decoration:none;}
+  html{scroll-behavior:smooth;}
   .wrap{max-width:1080px;margin-inline:auto;padding-inline:20px;}
 
   header.topbar{
@@ -80,6 +81,8 @@
     color:var(--text-dim);
     white-space:nowrap;
   }
+  nav.deskrow a{color:var(--text-dim);}
+  nav.deskrow a:hover{color:var(--accent);}
 
   main{padding-block:28px 60px;}
 
@@ -138,6 +141,7 @@
     border-bottom:1px solid var(--border);
     border-top:4px solid var(--accent);
     transition:opacity 0.15s ease;
+    scroll-margin-top:96px;
   }
   .lead:hover{opacity:0.88;}
   .lead .num{
@@ -192,6 +196,7 @@
     display:flex;flex-direction:column;
     border-top:3px solid var(--accent);
     transition:background 0.15s ease;
+    scroll-margin-top:96px;
   }
   .card:hover{background:var(--surface);}
   .card-link{position:absolute;inset:0;z-index:1;}
@@ -243,7 +248,7 @@
   </div>
   <div class="wrap">
     <nav class="deskrow">
-      <span>Crime</span><span>Sport</span><span>Business</span><span>Politics</span><span>Tech</span><span>Screen</span><span>World</span>
+      <a href="#crime">Crime</a><a href="#sport">Sport</a><a href="#business">Business</a><a href="#politics">Politics</a><a href="#tech">Tech</a><a href="#screen">Screen</a><a href="#world">World</a>
     </nav>
   </div>
 </header>
@@ -259,7 +264,7 @@
     </ol>
   </section>
 
-  <section class="lead" style="border-top-color:#e0392c">
+  <section class="lead" id="crime" style="border-top-color:#e0392c">
     <a class="lead-link" href="posts/2026-09-19-ekurhuleni-serial-killings.html" aria-label="Read full story"></a>
     <span class="num">01</span>
     <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
@@ -271,7 +276,7 @@
 
   <div class="grid">
 
-    <article class="card" style="border-top-color:#1f9d55">
+    <article class="card" id="sport" style="border-top-color:#1f9d55">
       <a class="card-link" href="posts/2026-09-19-bok-squad.html" aria-label="Read full story"></a>
       <span class="num">02</span>
       <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
@@ -280,7 +285,7 @@
       <div class="byline">Sport Desk</div>
     </article>
 
-    <article class="card" style="border-top-color:#2f6fed">
+    <article class="card" id="business" style="border-top-color:#2f6fed">
       <a class="card-link" href="posts/2026-09-19-us-tariff-offer.html" aria-label="Read full story"></a>
       <span class="num">03</span>
       <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
@@ -289,7 +294,7 @@
       <div class="byline">Business Desk</div>
     </article>
 
-    <article class="card" style="border-top-color:#0ea5b0">
+    <article class="card" id="tech" style="border-top-color:#0ea5b0">
       <a class="card-link" href="posts/2026-09-19-ai-chips-copyright.html" aria-label="Read full story"></a>
       <span class="num">04</span>
       <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
@@ -298,7 +303,7 @@
       <div class="byline">Tech Desk</div>
     </article>
 
-    <article class="card" style="border-top-color:#8b5cf6">
+    <article class="card" id="politics" style="border-top-color:#8b5cf6">
       <a class="card-link" href="posts/2026-09-19-municipal-governance.html" aria-label="Read full story"></a>
       <span class="num">05</span>
       <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
@@ -307,7 +312,7 @@
       <div class="byline">Politics Desk</div>
     </article>
 
-    <article class="card" style="border-top-color:#f59e0b">
+    <article class="card" id="screen" style="border-top-color:#f59e0b">
       <a class="card-link" href="posts/2026-09-19-streaming-september.html" aria-label="Read full story"></a>
       <span class="num">06</span>
       <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
@@ -316,7 +321,7 @@
       <div class="byline">Culture Desk</div>
     </article>
 
-    <article class="card" style="border-top-color:#64748b">
+    <article class="card" id="world" style="border-top-color:#64748b">
       <a class="card-link" href="posts/2026-09-19-musk-empire.html" aria-label="Read full story"></a>
       <span class="num">07</span>
       <span class="tag" style="color:#64748b;background:#eef1f4">World</span>

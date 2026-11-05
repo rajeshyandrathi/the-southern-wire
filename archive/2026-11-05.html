@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Southern Wire &mdash; Thursday, 5 November 2026</title>
+<meta name="description" content="A daily digest of South African, African and world news — crime, sport, tech, screen, politics and business — written fresh every morning in our own voice.">
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#f7f5f1;
+    --text:#141414;
+    --text-dim:#5c5c5c;
+    --border:rgba(0,0,0,0.13);
+    --accent:#2f8fe0;
+    --accent-soft:#e3f2fd;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0b0f14;
+      --surface:#12181f;
+      --text:#f2f2f0;
+      --text-dim:#a3a3a0;
+      --border:rgba(255,255,255,0.15);
+      --accent:#6cc0ff;
+      --accent-soft:#122a3d;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0b0f14; --surface:#12181f; --text:#f2f2f0; --text-dim:#a3a3a0;
+    --border:rgba(255,255,255,0.15); --accent:#6cc0ff; --accent-soft:#122a3d;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', -apple-system, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1140px;margin-inline:auto;padding-inline:24px;}
+
+  .util-bar{
+    border-bottom:1px solid var(--border);
+    font-size:0.72rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--text-dim);
+  }
+  .util-bar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-block:8px;flex-wrap:wrap;gap:8px;
+  }
+  .util-bar a{color:var(--text-dim);}
+  .util-bar a:hover{color:var(--accent);}
+
+  header.masthead{
+    text-align:center;
+    padding-block:22px 14px;
+  }
+  .brand{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2.1rem, 5.5vw, 3.2rem);
+    letter-spacing:-0.01em;
+  }
+  .brand .dot{color:var(--accent);}
+  .tagline{
+    font-size:0.76rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--text-dim);
+    margin-top:4px;
+  }
+
+  nav.deskrow{
+    border-top:1px solid var(--text);
+    border-bottom:1px solid var(--border);
+    display:flex;justify-content:center;gap:2px;
+    overflow-x:auto;
+    font-size:0.78rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.04em;
+    white-space:nowrap;
+  }
+  nav.deskrow a{
+    color:var(--text);
+    padding:11px 16px;
+    border-bottom:2px solid transparent;
+  }
+  nav.deskrow a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+
+  main{padding-block:30px 64px;}
+
+  .top-stories{
+    border:1px solid var(--border);
+    padding:14px 18px;
+    margin-bottom:34px;
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .top-stories .ts-label{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:0.9rem;font-weight:700;
+    color:var(--accent);
+    white-space:nowrap;
+  }
+  .top-stories ol{
+    list-style:none;margin:0;padding:0;
+    display:flex;gap:22px;flex-wrap:wrap;
+    flex:1;
+  }
+  .top-stories li{
+    font-size:0.88rem;font-weight:600;
+  }
+  .top-stories a:hover{color:var(--accent);}
+
+  .tag{
+    display:inline-block;
+    font-size:0.68rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.05em;
+    padding:3px 9px;
+    border-radius:2px;
+    margin-bottom:12px;
+  }
+
+  .cover{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:3px;
+    margin-bottom:16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 14px),
+      radial-gradient(circle at 78% 22%, rgba(255,255,255,0.35), transparent 45%);
+  }
+  .lead .cover{aspect-ratio:2.2/1;}
+
+  .byline{
+    font-size:0.76rem;
+    color:var(--text-dim);
+    font-weight:600;
+    font-style:italic;
+  }
+  .byline .sep{margin:0 6px;opacity:0.5;font-style:normal;}
+  .read-more{
+    font-size:0.78rem;font-weight:700;color:var(--accent);
+    margin-top:12px;display:inline-block;
+  }
+
+  .lead{
+    position:relative;
+    padding-bottom:32px;
+    margin-bottom:34px;
+    border-bottom:3px double var(--text);
+  }
+  .lead-link{position:absolute;inset:0;z-index:1;}
+  .lead h1{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2rem, 4.8vw, 3.1rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    margin:0 0 14px;
+    max-width:20ch;
+  }
+  .lead p.dek{
+    font-size:1.1rem;
+    line-height:1.55;
+    color:var(--text-dim);
+    max-width:62ch;
+    margin:0 0 14px;
+    font-weight:400;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-top:1px solid var(--border);
+    border-left:1px solid var(--border);
+  }
+  @media (max-width:860px){
+    .grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr;}
+  }
+  .card{
+    position:relative;
+    padding:22px 22px 24px;
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .card-link{position:absolute;inset:0;z-index:1;}
+  .card h2{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:1.22rem;
+    line-height:1.25;
+    letter-spacing:-0.005em;
+    margin:0 0 10px;
+  }
+  .card:hover h2{color:var(--accent);}
+  .card p.summary{
+    font-size:0.9rem;
+    line-height:1.5;
+    color:var(--text-dim);
+    margin:0 0 12px;
+  }
+
+  footer{
+    margin-top:26px;
+    padding-top:22px;
+    border-top:3px double var(--text);
+    font-size:0.82rem;
+    color:var(--text-dim);
+    line-height:1.7;
+  }
+  footer strong{color:var(--text);}
+  footer p{max-width:70ch;margin:0 0 8px;}
+</style>
+</head>
+<body>
+
+<div class="util-bar">
+  <div class="wrap">
+    <span id="today-date">Thursday, 5 November 2026</span>
+    <a href="index.html">Archive &rarr;</a>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="brand">The Southern<span class="dot">.</span>Wire</div>
+  <div class="tagline">South Africa &middot; Africa &middot; The World</div>
+</header>
+
+<nav class="deskrow">
+  <a href="../crime.html">Crime</a><a href="../sport.html">Sport</a><a href="../business.html">Business</a><a href="../politics.html">Politics</a><a href="../tech.html">Tech</a><a href="../screen.html">Screen</a><a href="../world.html">World</a><a href="../weather.html">Weather</a><a href="../lifestyle.html">Lifestyle</a>
+</nav>
+
+<main class="wrap">
+
+  <section class="top-stories">
+    <span class="ts-label">Top Stories</span>
+    <ol>
+      <li><a href="../posts/2026-11-05-election-results-fractured-verdict.html">The first results land, and South Africa's municipal map comes back in pieces</a></li>
+      <li><a href="../posts/2026-11-05-swift-greylist-risk-address-data.html">South Africa's patchy address data puts it at risk of being quietly shut out of the Swift payment network</a></li>
+      <li><a href="../posts/2026-11-05-zaporizhzhia-school-shelter-strike.html">A Russian strike on a school-turned-shelter in Zaporizhzhia region leaves dozens dead and missing</a></li>
+    </ol>
+  </section>
+
+  <section class="lead">
+    <a class="lead-link" href="../posts/2026-11-05-election-results-fractured-verdict.html" aria-label="Read full story"></a>
+    <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
+    <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
+    <h1>The first results land, and South Africa's municipal map comes back in pieces</h1>
+    <p class="dek">Barely a sliver of the vote has been counted, but early numbers already show a country split three and four ways: the DA edging ahead in Johannesburg, ActionSA surging past expectations in Tshwane, and the MK Party out front in KwaZulu-Natal, with the Independent Electoral Commission's seven-day declaration deadline now the clock everyone is watching.</p>
+    <div class="byline">The Southern Wire Desk<span class="sep">&middot;</span>Johannesburg</div>
+    <span class="read-more">Read the full story &rarr;</span>
+  </section>
+
+  <div class="grid">
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-doha-congo-talks-resume-kabila-shadow.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
+      <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
+      <h2>Doha talks resume on Congo's war, but Kabila's shadow leaves little room for a breakthrough</h2>
+      <p class="summary">Congolese government and M23 negotiators are back at the table in Qatar's capital, picking up a peace process that has survived collapsed signings and renewed fighting, now further complicated by the exiled former president's open alignment with the rebel alliance.</p>
+      <div class="byline">Politics Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-election-violence-task-team-busiest-week.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#e0392c,#8f1f16)"></div>
+      <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
+      <h2>The task team built to stop political killings faces its busiest week yet</h2>
+      <p class="summary">With polling day's violence now a matter for investigators rather than campaigners, the specialist unit set up to probe politically motivated murders is working through its heaviest caseload in years, leaning on a conviction record built over nearly a decade of similar cases.</p>
+      <div class="byline">Crime Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-senzo-meyiwa-trial-continues.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#e0392c,#8f1f16)"></div>
+      <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
+      <h2>Twelve years on, the Senzo Meyiwa murder trial returns to a familiar Pretoria courtroom</h2>
+      <p class="summary">The marathon trial of five men accused of killing the former Bafana Bafana captain resumed this week in the North Gauteng High Court, a case now so long-running that its own procedural history has become as much a story as the murder itself.</p>
+      <div class="byline">Crime Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-springboks-turin-italy-test.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
+      <h2>World number one Springboks open their Nations Championship campaign against Italy in Turin</h2>
+      <p class="summary">Rassie Erasmus's world champions begin a three-match November tour at Allianz Stadium, defending a top ranking they share on points with New Zealand and treating an Italian side many expect them to beat comfortably with uncharacteristic caution.</p>
+      <div class="byline">Sport Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-proteas-brevis-baartman-contracts.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
+      <h2>Cricket South Africa hands out its new contracts, and two uncapped names make the cut</h2>
+      <p class="summary">Dewald Brevis and Ottneil Baartman have been awarded their first national contracts ahead of a home summer that includes back-to-back Tests against Bangladesh on the Highveld, as Cricket South Africa looks to its newest crop of talent to carry the men's team forward.</p>
+      <div class="byline">Sport Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-rand-jse-hung-election-verdict.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>Rand and JSE hold their nerve as the municipal vote delivers a hung, fractured verdict</h2>
+      <p class="summary">Currency and equity markets have so far shrugged off a count that has produced no outright winner anywhere that matters, with traders treating a messy coalition outcome as the expected result rather than a surprise worth repricing for.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-swift-greylist-risk-address-data.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>South Africa's patchy address data puts it at risk of being quietly shut out of the Swift payment network</h2>
+      <p class="summary">A warning from geolocation data firm AfriGIS has put a little-noticed compliance deadline on the radar of banks and payments companies: incomplete and inconsistent street-address records could see South African institutions flagged or restricted on the global Swift messaging system this month.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-eskom-500-days-no-load-shedding.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>Eskom quietly closes in on 500 days without a single rotational power cut</h2>
+      <p class="summary">What was once the defining crisis of the South African economy has become an afterthought: the utility's stabilised generation fleet has kept the lights on nationally for well over a year, even as a narrower, more localised form of load reduction continues in struggling network areas.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-africacom-countdown-cape-town.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>Cape Town's countdown to AfricaCom tightens as exhibitor numbers swell</h2>
+      <p class="summary">With dates now firmly set for 17 to 19 November at the CTICC, organisers of the continent's biggest technology gathering say this year's edition is tracking to be its largest yet, pulling telecom operators, satellite firms and startups into the city for a week of dealmaking.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-ai-intelligence-index-race.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>A new ranking puts Anthropic, Google and OpenAI in a near dead heat atop the AI intelligence race</h2>
+      <p class="summary">Independent benchmarking firms tracking the capability of frontier AI systems say the gap between the industry's three biggest labs has narrowed to a matter of fractions of a point, even as all three race to ship their next flagship models before the year is out.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-joburg-film-festival-winners.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#f59e0b,#b56d00)"></div>
+      <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
+      <h2>The Joburg Film Festival crowns its 2026 winners, and homegrown stories take the big prizes</h2>
+      <p class="summary">Silent Rebellion took the festival's top Best Feature Film honour, while Variations on a Theme claimed Best African Film, a result organisers are reading as confirmation that South African and continental storytelling no longer needs an imported hit to carry a festival.</p>
+      <div class="byline">Culture Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-gallo-music-africa-centenary-samas.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#f59e0b,#b56d00)"></div>
+      <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
+      <h2>Gallo Music Africa turns 100, and this year's SAMA nominations lean toward fresh faces</h2>
+      <p class="summary">The country's oldest record label marked a rare centenary in Johannesburg this week, even as the South African Music Awards' latest nomination list signalled a generational handover already well underway across the industry it helped build.</p>
+      <div class="byline">Culture Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-zaporizhzhia-school-shelter-strike.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>A Russian strike on a school-turned-shelter in Zaporizhzhia region leaves dozens dead and missing</h2>
+      <p class="summary">At least 33 people are confirmed killed and roughly 50 more are missing after bombs struck a school building in Komyshuvakha that had been converted into a civilian shelter and humanitarian aid distribution point, one of the deadliest single strikes on civilians in recent months.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-hebron-withdrawal-checkpoint-attack.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>Israeli forces pull back from Hebron after a deadly checkpoint attack and days-long manhunt</h2>
+      <p class="summary">A multi-day military operation in the occupied West Bank city wound down this week following the killing of two Israeli soldiers at a checkpoint, even as the underlying tensions that produced the attack show no sign of easing.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-us-congress-power-shift-ripples.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>Washington's power shift sends its first ripples toward Kyiv and Tehran</h2>
+      <p class="summary">A day after Democrats secured control of both chambers of Congress, the early diplomatic fallout is already visible: European officials pressing for firmer backing of Ukraine, and a White House digging in on a confrontational Iran policy it insists the midterm result does not call into question.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-summer-heat-rainy-season-builds.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0284c7,#045078)"></div>
+      <span class="tag" style="color:#0284c7;background:#e0f2fe">Weather &amp; Snow</span>
+      <h2>The Highveld feels its first real summer heat as the rainy season tightens its grip</h2>
+      <p class="summary">With the municipal election behind it, the country's attention is turning, for a few days at least, back to the sky: forecasters say the familiar pattern of hot afternoons building into thunderstorms is settling in across the interior, the clearest sign yet that summer has properly arrived.</p>
+      <div class="byline">Weather Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-beach-season-turtle-nesting-opens.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>Summer opens along the coast, and the first loggerheads come ashore to nest at St Lucia</h2>
+      <p class="summary">With water temperatures climbing and the first properly warm weekends of the season drawing crowds back to the sand, South Africa's long beach season gets underway just as its sea turtles begin their own annual ritual further up the KwaZulu-Natal coast.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-05-jacaranda-season-fades-pretoria.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>Jacaranda season fades from Pretoria's streets, but the city's purple afterglow lingers</h2>
+      <p class="summary">The brief, intense bloom that turns the capital's avenues violet each spring is passing its peak, leaving fallen blossoms underfoot and a last window for visitors hoping to catch the trees before next year's wait begins again.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+  </div>
+
+  <footer>
+    <p>Published from Johannesburg, South Africa. See the <a href="index.html" style="color:var(--accent)">archive</a> for past editions.</p>
+  </footer>
+
+</main>
+</body>
+</html>

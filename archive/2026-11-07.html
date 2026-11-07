@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Southern Wire &mdash; Saturday, 7 November 2026</title>
+<meta name="description" content="A daily digest of South African, African and world news — crime, sport, tech, screen, politics and business — written fresh every morning in our own voice.">
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#f7f5f1;
+    --text:#141414;
+    --text-dim:#5c5c5c;
+    --border:rgba(0,0,0,0.13);
+    --accent:#2f8fe0;
+    --accent-soft:#e3f2fd;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0b0f14;
+      --surface:#12181f;
+      --text:#f2f2f0;
+      --text-dim:#a3a3a0;
+      --border:rgba(255,255,255,0.15);
+      --accent:#6cc0ff;
+      --accent-soft:#122a3d;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0b0f14; --surface:#12181f; --text:#f2f2f0; --text-dim:#a3a3a0;
+    --border:rgba(255,255,255,0.15); --accent:#6cc0ff; --accent-soft:#122a3d;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', -apple-system, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1140px;margin-inline:auto;padding-inline:24px;}
+
+  .util-bar{
+    border-bottom:1px solid var(--border);
+    font-size:0.72rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--text-dim);
+  }
+  .util-bar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-block:8px;flex-wrap:wrap;gap:8px;
+  }
+  .util-bar a{color:var(--text-dim);}
+  .util-bar a:hover{color:var(--accent);}
+
+  header.masthead{
+    text-align:center;
+    padding-block:22px 14px;
+  }
+  .brand{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2.1rem, 5.5vw, 3.2rem);
+    letter-spacing:-0.01em;
+  }
+  .brand .dot{color:var(--accent);}
+  .tagline{
+    font-size:0.76rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--text-dim);
+    margin-top:4px;
+  }
+
+  nav.deskrow{
+    border-top:1px solid var(--text);
+    border-bottom:1px solid var(--border);
+    display:flex;justify-content:center;gap:2px;
+    overflow-x:auto;
+    font-size:0.78rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.04em;
+    white-space:nowrap;
+  }
+  nav.deskrow a{
+    color:var(--text);
+    padding:11px 16px;
+    border-bottom:2px solid transparent;
+  }
+  nav.deskrow a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+
+  main{padding-block:30px 64px;}
+
+  .top-stories{
+    border:1px solid var(--border);
+    padding:14px 18px;
+    margin-bottom:34px;
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .top-stories .ts-label{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:0.9rem;font-weight:700;
+    color:var(--accent);
+    white-space:nowrap;
+  }
+  .top-stories ol{
+    list-style:none;margin:0;padding:0;
+    display:flex;gap:22px;flex-wrap:wrap;
+    flex:1;
+  }
+  .top-stories li{
+    font-size:0.88rem;font-weight:600;
+  }
+  .top-stories a:hover{color:var(--accent);}
+
+  .tag{
+    display:inline-block;
+    font-size:0.68rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.05em;
+    padding:3px 9px;
+    border-radius:2px;
+    margin-bottom:12px;
+  }
+
+  .cover{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:3px;
+    margin-bottom:16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 14px),
+      radial-gradient(circle at 78% 22%, rgba(255,255,255,0.35), transparent 45%);
+  }
+  .lead .cover{aspect-ratio:2.2/1;}
+
+  .byline{
+    font-size:0.76rem;
+    color:var(--text-dim);
+    font-weight:600;
+    font-style:italic;
+  }
+  .byline .sep{margin:0 6px;opacity:0.5;font-style:normal;}
+  .read-more{
+    font-size:0.78rem;font-weight:700;color:var(--accent);
+    margin-top:12px;display:inline-block;
+  }
+
+  .lead{
+    position:relative;
+    padding-bottom:32px;
+    margin-bottom:34px;
+    border-bottom:3px double var(--text);
+  }
+  .lead-link{position:absolute;inset:0;z-index:1;}
+  .lead h1{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2rem, 4.8vw, 3.1rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    margin:0 0 14px;
+    max-width:20ch;
+  }
+  .lead p.dek{
+    font-size:1.1rem;
+    line-height:1.55;
+    color:var(--text-dim);
+    max-width:62ch;
+    margin:0 0 14px;
+    font-weight:400;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-top:1px solid var(--border);
+    border-left:1px solid var(--border);
+  }
+  @media (max-width:860px){
+    .grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr;}
+  }
+  .card{
+    position:relative;
+    padding:22px 22px 24px;
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .card-link{position:absolute;inset:0;z-index:1;}
+  .card h2{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:1.22rem;
+    line-height:1.25;
+    letter-spacing:-0.005em;
+    margin:0 0 10px;
+  }
+  .card:hover h2{color:var(--accent);}
+  .card p.summary{
+    font-size:0.9rem;
+    line-height:1.5;
+    color:var(--text-dim);
+    margin:0 0 12px;
+  }
+
+  footer{
+    margin-top:26px;
+    padding-top:22px;
+    border-top:3px double var(--text);
+    font-size:0.82rem;
+    color:var(--text-dim);
+    line-height:1.7;
+  }
+  footer strong{color:var(--text);}
+  footer p{max-width:70ch;margin:0 0 8px;}
+</style>
+</head>
+<body>
+
+<div class="util-bar">
+  <div class="wrap">
+    <span id="today-date">Saturday, 7 November 2026</span>
+    <a href="index.html">Archive &rarr;</a>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="brand">The Southern<span class="dot">.</span>Wire</div>
+  <div class="tagline">South Africa &middot; Africa &middot; The World</div>
+</header>
+
+<nav class="deskrow">
+  <a href="../crime.html">Crime</a><a href="../sport.html">Sport</a><a href="../business.html">Business</a><a href="../politics.html">Politics</a><a href="../tech.html">Tech</a><a href="../screen.html">Screen</a><a href="../world.html">World</a><a href="../weather.html">Weather</a><a href="../lifestyle.html">Lifestyle</a>
+</nav>
+
+<main class="wrap">
+
+  <section class="top-stories">
+    <span class="ts-label">Top Stories</span>
+    <ol>
+      <li><a href="../posts/2026-11-07-coalition-clock-hung-metros-mayors.html">With Sunday's declaration looming, South Africa's hung metros turn from counting votes to counting friends</a></li>
+      <li><a href="../posts/2026-11-07-zaporizhzhia-toll-climbs-search-continues.html">Dozens still missing as Komyshuvakha's search-and-recovery operation grinds into its second week</a></li>
+      <li><a href="../posts/2026-11-07-gaza-strikes-continue-ceasefire.html">A year after the truce was announced, Israeli strikes on Gaza have never actually stopped</a></li>
+    </ol>
+  </section>
+
+  <section class="lead">
+    <a class="lead-link" href="../posts/2026-11-07-coalition-clock-hung-metros-mayors.html" aria-label="Read full story"></a>
+    <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
+    <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
+    <h1>With Sunday's declaration looming, South Africa's hung metros turn from counting votes to counting friends</h1>
+    <p class="dek">Johannesburg and Tshwane head into the weekend with no party near a majority, a 14-day clock for electing mayors once the IEC's official declaration lands on Sunday, and a long list of small parties suddenly holding more leverage than their vote share would ever have suggested. Herman Mashaba's refusal to work with Helen Zille could hand the ANC, bruised everywhere else, a decisive say in who runs the country's largest city.</p>
+    <div class="byline">The Southern Wire Desk<span class="sep">&middot;</span>Johannesburg</div>
+    <span class="read-more">Read the full story &rarr;</span>
+  </section>
+
+  <div class="grid">
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-small-parties-kingmakers-hung-councils.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
+      <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
+      <h2>In a fractured election, South Africa's smallest parties have become its most powerful</h2>
+      <p class="summary">A handful of seats held by ActionSA, the Freedom Front Plus and the Patriotic Alliance now decide who governs several of the country's biggest councils, turning minor parties into kingmakers almost overnight.</p>
+      <div class="byline">Politics Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-sudan-darfur-crisis-deepens.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
+      <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
+      <h2>Drought, drones and displacement: Darfur's war enters a crueller phase</h2>
+      <p class="summary">The United Nations says Sudanese civilians are caught between drone warfare, state repression and deprivation, as failed harvests compound a displacement crisis already concentrated overwhelmingly in Darfur.</p>
+      <div class="byline">Politics Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-aka-tibz-trial-second-month-durban.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#e0392c,#8f1f16)"></div>
+      <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
+      <h2>Three and a half years after AKA's murder, the Durban High Court is finally hearing the evidence</h2>
+      <p class="summary">A road manager's testimony and a separated trial for one co-accused mark real progress in the case, after years consumed almost entirely by extradition battles and procedural delay.</p>
+      <div class="byline">Crime Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-cape-flats-lavender-hill-reward-gang-violence.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#e0392c,#8f1f16)"></div>
+      <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
+      <h2>A R100,000 reward and a braai turned massacre: the Cape Flats' gang war has no off-season</h2>
+      <p class="summary">Police have offered a six-figure reward after a mass shooting at a Lavender Hill braai killed five, as separate gang-related shootings in Hanover Park add to a death toll the election season never paused.</p>
+      <div class="byline">Crime Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-springboks-italy-full-strength-turin.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
+      <h2>No more rotation: Erasmus sends out a near full-strength Springbok side to open the Nations Championship's second phase</h2>
+      <p class="summary">After a weekend of experimentation, the Springboks revert to their strongest available side for today's Turin assignment against an improving Italy, with results now carrying real weight for the first time this autumn.</p>
+      <div class="byline">Sport Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-proteas-squad-bangladesh-wanderers.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
+      <h2>De Zorzi and Nortje return as the Proteas finalise their squad for a two-Test Bangladesh assignment</h2>
+      <p class="summary">Both players come back from injury into a World Test Championship-holding squad that assembles in Johannesburg on 11 November ahead of Tests at the Wanderers and Centurion.</p>
+      <div class="byline">Sport Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-transport-inflation-cpi-rising.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>Transport costs are already driving inflation higher, and October's fuel spike hasn't even landed in the data yet</h2>
+      <p class="summary">September's CPI print came in under forecast at 4.5%, but transport inflation jumped to 10.8% and economists expect the October reading, due 18 November, to show a far sharper acceleration.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-transnet-first-private-freight-train.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>A single freight train out of Komatipoort just tested whether Transnet's rail monopoly can survive opening up</h2>
+      <p class="summary">A Grindrod-operated test run on the North East Corridor is the first time a private operator has run trains on South Africa's national freight network, a small but symbolic milestone for rail reform.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-sa-ai-policy-delayed-march-2027.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>South Africa's national AI policy slips again, even as a Finnish supercomputer offers a shortcut around the compute gap</h2>
+      <p class="summary">The redrafted AI framework now won't reach Cabinet before March 2027, a repeated delay that stands in sharp contrast to rising consumer AI adoption and a proposed international computing partnership.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-sa-fintech-funding-rebound-selective.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>South African fintechs are still raising money, just not the way they used to</h2>
+      <p class="summary">Bridgement's R330 million facility and Littlefish's $9.5 million raise show capital is still flowing to bank-adjacent lenders and infrastructure plays, even as continent-wide deal volumes shrink.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-netflix-warner-bros-bidding-war.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#f59e0b,#b56d00)"></div>
+      <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
+      <h2>Netflix's bid for Warner Bros. Discovery turns into a bidding war, with Paramount Skydance crashing the party</h2>
+      <p class="summary">A hostile counter-bid for Warner's studio and streaming assets sets up one of the biggest ownership fights Hollywood has seen in years, even as Netflix insists it remains a streaming-first business.</p>
+      <div class="byline">Culture Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-sa-film-incentive-stalemate-presidency.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#f59e0b,#b56d00)"></div>
+      <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
+      <h2>South Africa's film industry runs out of patience with government, appeals straight to the Presidency</h2>
+      <p class="summary">The Save SA Film and TV Jobs Coalition says stalled talks over the production incentive are going nowhere, warning that international shoots are already being routed to rival filming destinations.</p>
+      <div class="byline">Culture Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-europe-bomb-hoax-hybrid-warfare-theory.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>Seven flights, a cruise ship and hacked supermarket fridges: Europe's hoax wave looks less random by the day</h2>
+      <p class="summary">Security analysts are increasingly linking the continent's bomb hoaxes to a separate refrigeration hack and a cruise-ship threat, describing the combination as a form of low-cost, hard-to-attribute hybrid warfare.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-zaporizhzhia-toll-climbs-search-continues.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>Dozens still missing as Komyshuvakha's search-and-recovery operation grinds into its second week</h2>
+      <p class="summary">Regional head Mykhailo Semikin calls the aid-shelter strike one of the worst tragedies the region has suffered, as Washington's $2.1-billion Patriot sale underscores the war's continuing trajectory.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-gaza-strikes-continue-ceasefire.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>A year after the truce was announced, Israeli strikes on Gaza have never actually stopped</h2>
+      <p class="summary">Fresh strikes in Gaza City and Nuseirat have killed civilians in recent days, pushing the war's overall toll past 74,500 even as reconstruction access remains stuck in negotiation.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-el-nino-heatwave-arrives-fire-danger.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0284c7,#045078)"></div>
+      <span class="tag" style="color:#0284c7;background:#e0f2fe">Weather &amp; Snow</span>
+      <h2>The El Ni&ntilde;o summer SAWS warned about has arrived early, and it's already setting off fire alarms</h2>
+      <p class="summary">Heatwave warnings for KwaZulu-Natal, extreme fire danger in the Northern Cape and a scorching Johannesburg weekend suggest the drier, hotter season forecasters flagged in October is already here.</p>
+      <div class="byline">Weather Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-cape-town-november-calendar-soirees-best-day-out.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>Cape Town's November runs on wine under oak trees and a garden full of music, long before Taste Festival even opens</h2>
+      <p class="summary">Stellenbosch's Street Soir&eacute;es and the Company's Garden's Best Day Out Festival give the city a deliberately layered events calendar stretching well beyond Green Point's headline food festival.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-07-gautrain-prasa-rail-revival-commuters.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>From a R7 ride to a 32-train fleet: Gauteng's commuter rail is quietly having its best year in a decade</h2>
+      <p class="summary">Mabopane corridor trips have surged nearly twentyfold in five years and the Gautrain's fleet is expanding by a third, giving commuters a cheaper, more reliable alternative just as transport costs climb elsewhere.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+  </div>
+
+  <footer>
+    <p>Published from Johannesburg, South Africa. See the <a href="index.html" style="color:var(--accent)">archive</a> for past editions.</p>
+  </footer>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,194 @@
+/* The Southern Wire — shared widget styles (search, newsletter, share,
+   related posts, ad slots, cookie banner, legal footer links).
+   Loaded on every page alongside each page's own inline <style>, which
+   already defines --bg/--text/--accent/--border etc, so we just reuse them. */
+
+.sw-adslot{
+  margin:18px 0;
+  padding:10px;
+  border:1px dashed var(--border);
+  border-radius:3px;
+  text-align:center;
+  font-size:0.68rem;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--text-dim);
+  min-height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.sw-adslot[data-live="1"]{border-style:solid;padding:0;min-height:0;}
+.sw-adslot .sw-ad-label{opacity:0.6;}
+
+/* search */
+.sw-search{
+  position:relative;
+  margin:0 0 20px;
+}
+.sw-search input[type="search"]{
+  width:100%;
+  font-family:'Inter',sans-serif;
+  font-size:0.92rem;
+  padding:10px 14px;
+  border:1px solid var(--border);
+  border-radius:3px;
+  background:var(--bg);
+  color:var(--text);
+}
+.sw-search input[type="search"]:focus{outline:2px solid var(--accent);outline-offset:1px;}
+.sw-search-results{
+  position:absolute;
+  top:calc(100% + 4px);
+  left:0;right:0;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:3px;
+  max-height:360px;
+  overflow-y:auto;
+  z-index:50;
+  box-shadow:0 8px 24px rgba(0,0,0,0.12);
+  display:none;
+}
+.sw-search-results.sw-open{display:block;}
+.sw-search-results a{
+  display:block;
+  padding:10px 14px;
+  font-size:0.86rem;
+  border-bottom:1px solid var(--border);
+  color:var(--text);
+}
+.sw-search-results a:hover{background:var(--surface);color:var(--accent);}
+.sw-search-results .sw-sr-cat{
+  font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;
+  color:var(--text-dim);display:block;margin-bottom:2px;
+}
+.sw-search-empty{padding:14px;font-size:0.84rem;color:var(--text-dim);}
+
+/* newsletter */
+.sw-newsletter{
+  border:1px solid var(--border);
+  background:var(--surface);
+  padding:22px 24px;
+  margin:28px 0;
+  border-radius:3px;
+}
+.sw-newsletter h3{
+  font-family:'Playfair Display',serif;
+  font-weight:800;
+  font-size:1.25rem;
+  margin:0 0 6px;
+  color:var(--text);
+}
+.sw-newsletter p{
+  font-size:0.88rem;
+  color:var(--text-dim);
+  margin:0 0 14px;
+  max-width:52ch;
+}
+.sw-newsletter form{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.sw-newsletter input[type="email"]{
+  flex:1;
+  min-width:180px;
+  font-family:'Inter',sans-serif;
+  font-size:0.9rem;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:3px;
+  background:var(--bg);
+  color:var(--text);
+}
+.sw-newsletter button{
+  font-family:'Inter',sans-serif;
+  font-weight:700;
+  font-size:0.86rem;
+  text-transform:uppercase;
+  letter-spacing:0.03em;
+  padding:10px 18px;
+  border:none;
+  border-radius:3px;
+  background:var(--accent);
+  color:#fff;
+  cursor:pointer;
+}
+.sw-newsletter button:hover{opacity:0.9;}
+.sw-newsletter .sw-nl-msg{
+  font-size:0.82rem;margin-top:10px;display:none;
+}
+.sw-newsletter .sw-nl-msg.sw-show{display:block;}
+.sw-newsletter[hidden]{display:none;}
+
+/* share bar */
+.sw-share{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin:28px 0;
+  padding:16px 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.sw-share-label{
+  font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;
+  color:var(--text-dim);margin-right:4px;
+}
+.sw-share a, .sw-share button{
+  font-size:0.78rem;font-weight:600;
+  padding:7px 13px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  color:var(--text);
+  background:transparent;
+  cursor:pointer;
+  font-family:'Inter',sans-serif;
+}
+.sw-share a:hover, .sw-share button:hover{border-color:var(--accent);color:var(--accent);}
+
+/* related posts */
+.sw-related{margin:32px 0;}
+.sw-related h3{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1rem;font-weight:700;color:var(--accent);
+  margin:0 0 14px;
+}
+.sw-related ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--border);}
+.sw-related li{border-bottom:1px solid var(--border);padding:12px 0;}
+.sw-related a{font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:var(--text);}
+.sw-related a:hover{color:var(--accent);}
+
+/* cookie consent */
+.sw-cookie{
+  position:fixed;
+  left:0;right:0;bottom:0;
+  z-index:200;
+  background:var(--text);
+  color:var(--bg);
+  padding:16px 20px;
+  display:flex;
+  gap:16px;
+  align-items:center;
+  flex-wrap:wrap;
+  font-size:0.84rem;
+}
+.sw-cookie p{margin:0;flex:1;min-width:200px;line-height:1.5;}
+.sw-cookie a{text-decoration:underline;}
+.sw-cookie-actions{display:flex;gap:8px;}
+.sw-cookie button{
+  font-family:'Inter',sans-serif;font-weight:700;font-size:0.8rem;
+  padding:8px 16px;border-radius:20px;border:1px solid var(--bg);
+  background:transparent;color:var(--bg);cursor:pointer;
+}
+.sw-cookie button.sw-cookie-accept{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+/* legal footer links injected into every <footer> */
+.sw-legal-links{
+  margin-top:10px;
+  font-size:0.78rem;
+}
+.sw-legal-links a{color:var(--text-dim);margin-right:14px;}
+.sw-legal-links a:hover{color:var(--accent);}

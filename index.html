@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Southern Wire</title>
 <meta name="description" content="A daily digest of South African, African and world news — crime, sport, tech, screen, politics and business — written fresh every morning in our own voice.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/widgets.css">
+<link rel="alternate" type="application/rss+xml" title="The Southern Wire" href="rss.xml">
 <style>
   :root{
     --bg:#ffffff;
@@ -234,6 +237,13 @@
 </head>
 <body>
 
+<!-- Registers the "newsletter" form with Netlify Forms at build time. Do not
+     remove: the pretty signup box injected by assets/site.js on every page
+     submits to this form name. Keep this block when regenerating index.html. -->
+<form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email">
+</form>
+
 <div class="util-bar">
   <div class="wrap">
     <span id="today-date">Tuesday, 10 November 2026</span>
@@ -406,5 +416,7 @@
   </footer>
 
 </main>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
 </body>
 </html>

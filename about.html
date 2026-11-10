@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — The Southern Wire</title>
+<meta name="description" content="What The Southern Wire is, how it's produced, and who's behind it.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/widgets.css">
+<style>
+  :root{ --bg:#ffffff; --surface:#f7f5f1; --text:#141414; --text-dim:#5c5c5c; --border:rgba(0,0,0,0.13); --accent:#2f8fe0; --accent-soft:#e3f2fd; }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --bg:#0b0f14; --surface:#12181f; --text:#f2f2f0; --text-dim:#a3a3a0; --border:rgba(255,255,255,0.15); --accent:#6cc0ff; --accent-soft:#122a3d; }
+  }
+  :root[data-theme="dark"]{ --bg:#0b0f14; --surface:#12181f; --text:#f2f2f0; --text-dim:#a3a3a0; --border:rgba(255,255,255,0.15); --accent:#6cc0ff; --accent-soft:#122a3d; }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:760px;margin-inline:auto;padding-inline:20px;}
+  header.topbar{border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:10;}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;padding-block:16px;gap:12px;flex-wrap:wrap;max-width:1080px;margin-inline:auto;padding-inline:20px;}
+  .brand{font-family:'Playfair Display',serif;font-weight:800;font-size:1.35rem;letter-spacing:-0.01em;}
+  .brand .dot{color:var(--accent);}
+  .topbar-meta{font-size:0.8rem;color:var(--text-dim);font-weight:500;}
+  .topbar-meta a:hover{color:var(--accent);}
+  main{padding-block:36px 60px;}
+  .back-link{font-size:0.85rem;color:var(--text-dim);margin-bottom:20px;display:inline-block;}
+  .back-link:hover{color:var(--accent);}
+  h1{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.1;letter-spacing:-0.005em;margin:0 0 24px;color:var(--text);border-top:3px solid var(--accent);padding-top:20px;}
+  h2{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;margin:32px 0 10px;}
+  article p, article li{font-size:1.02rem;line-height:1.7;margin:0 0 16px;}
+  article ul{padding-left:1.2em;}
+  footer{margin-top:40px;padding-top:24px;border-top:1px solid var(--border);font-size:0.82rem;color:var(--text-dim);line-height:1.7;}
+  footer p{max-width:70ch;margin:0 0 8px;}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">The Southern<span class="dot">.</span>Wire</div>
+    <div class="topbar-meta"><a href="index.html">Home</a></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <a class="back-link" href="index.html">&larr; Back to today's edition</a>
+  <h1>About The Southern Wire</h1>
+
+  <article>
+    <p>The Southern Wire is a daily news digest covering South Africa, the rest of Africa and the wider world, published every morning from Johannesburg. Each edition is organised the way a newspaper's desks are organised &mdash; Crime &amp; Courts, Sport, Business &amp; Economy, Politics, Sci &amp; Tech, Film &amp; Screen, World, Weather, and Lifestyle &mdash; so readers can go straight to what they care about or scan the whole day in one sitting.</p>
+
+    <h2>How it's produced</h2>
+    <p>Every story starts from real, verifiable developments &mdash; court proceedings, economic data, official statements, sporting results, and reporting from the day's news cycle. The Southern Wire does not do original newsgathering of its own: no reporters are filing from courtrooms or stadiums. Instead, our editorial process researches the day's verified developments and drafts original commentary and analysis around them, in the site's own voice, reviewed before publication each morning. We say this plainly because we think readers deserve to know how a publication is made, not because we think it should change how you read it: the facts underneath every story are real, and the commentary is written fresh every day rather than copied from anywhere else.</p>
+    <p>We do not display source links or outlet names on individual stories, by editorial choice, in keeping with how we present our own commentary rather than as a news aggregator. If you want to verify a specific fact, the search box on this site is a good place to start, and we're always happy to be asked directly &mdash; see Contact.</p>
+
+    <h2>Corrections</h2>
+    <p>If you believe something on this site is factually wrong, please tell us via the <a href="contact.html" style="color:var(--accent)">contact page</a>. We'll look into it and correct genuine errors promptly.</p>
+
+    <h2>Support</h2>
+    <p>The Southern Wire is funded by advertising. We try to keep ads unobtrusive and clearly labelled; see our <a href="privacy.html" style="color:var(--accent)">Privacy Policy</a> for what that means for your data.</p>
+  </article>
+
+  <footer>
+    <p>Published from Johannesburg, South Africa.</p>
+  </footer>
+</main>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

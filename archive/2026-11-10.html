@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Southern Wire</title>
+<meta name="description" content="A daily digest of South African, African and world news — crime, sport, tech, screen, politics and business — written fresh every morning in our own voice.">
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#f7f5f1;
+    --text:#141414;
+    --text-dim:#5c5c5c;
+    --border:rgba(0,0,0,0.13);
+    --accent:#2f8fe0;
+    --accent-soft:#e3f2fd;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0b0f14;
+      --surface:#12181f;
+      --text:#f2f2f0;
+      --text-dim:#a3a3a0;
+      --border:rgba(255,255,255,0.15);
+      --accent:#6cc0ff;
+      --accent-soft:#122a3d;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0b0f14; --surface:#12181f; --text:#f2f2f0; --text-dim:#a3a3a0;
+    --border:rgba(255,255,255,0.15); --accent:#6cc0ff; --accent-soft:#122a3d;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', -apple-system, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1140px;margin-inline:auto;padding-inline:24px;}
+
+  .util-bar{
+    border-bottom:1px solid var(--border);
+    font-size:0.72rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--text-dim);
+  }
+  .util-bar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-block:8px;flex-wrap:wrap;gap:8px;
+  }
+  .util-bar a{color:var(--text-dim);}
+  .util-bar a:hover{color:var(--accent);}
+
+  header.masthead{
+    text-align:center;
+    padding-block:22px 14px;
+  }
+  .brand{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2.1rem, 5.5vw, 3.2rem);
+    letter-spacing:-0.01em;
+  }
+  .brand .dot{color:var(--accent);}
+  .tagline{
+    font-size:0.76rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--text-dim);
+    margin-top:4px;
+  }
+
+  nav.deskrow{
+    border-top:1px solid var(--text);
+    border-bottom:1px solid var(--border);
+    display:flex;justify-content:center;gap:2px;
+    overflow-x:auto;
+    font-size:0.78rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.04em;
+    white-space:nowrap;
+  }
+  nav.deskrow a{
+    color:var(--text);
+    padding:11px 16px;
+    border-bottom:2px solid transparent;
+  }
+  nav.deskrow a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+
+  main{padding-block:30px 64px;}
+
+  .top-stories{
+    border:1px solid var(--border);
+    padding:14px 18px;
+    margin-bottom:34px;
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .top-stories .ts-label{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:0.9rem;font-weight:700;
+    color:var(--accent);
+    white-space:nowrap;
+  }
+  .top-stories ol{
+    list-style:none;margin:0;padding:0;
+    display:flex;gap:22px;flex-wrap:wrap;
+    flex:1;
+  }
+  .top-stories li{
+    font-size:0.88rem;font-weight:600;
+  }
+  .top-stories a:hover{color:var(--accent);}
+
+  .tag{
+    display:inline-block;
+    font-size:0.68rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.05em;
+    padding:3px 9px;
+    border-radius:2px;
+    margin-bottom:12px;
+  }
+
+  .cover{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:3px;
+    margin-bottom:16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 14px),
+      radial-gradient(circle at 78% 22%, rgba(255,255,255,0.35), transparent 45%);
+  }
+  .lead .cover{aspect-ratio:2.2/1;}
+
+  .byline{
+    font-size:0.76rem;
+    color:var(--text-dim);
+    font-weight:600;
+    font-style:italic;
+  }
+  .byline .sep{margin:0 6px;opacity:0.5;font-style:normal;}
+  .read-more{
+    font-size:0.78rem;font-weight:700;color:var(--accent);
+    margin-top:12px;display:inline-block;
+  }
+
+  .lead{
+    position:relative;
+    padding-bottom:32px;
+    margin-bottom:34px;
+    border-bottom:3px double var(--text);
+  }
+  .lead-link{position:absolute;inset:0;z-index:1;}
+  .lead h1{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2rem, 4.8vw, 3.1rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    margin:0 0 14px;
+    max-width:20ch;
+  }
+  .lead p.dek{
+    font-size:1.1rem;
+    line-height:1.55;
+    color:var(--text-dim);
+    max-width:62ch;
+    margin:0 0 14px;
+    font-weight:400;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-top:1px solid var(--border);
+    border-left:1px solid var(--border);
+  }
+  @media (max-width:860px){
+    .grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr;}
+  }
+  .card{
+    position:relative;
+    padding:22px 22px 24px;
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .card-link{position:absolute;inset:0;z-index:1;}
+  .card h2{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:1.22rem;
+    line-height:1.25;
+    letter-spacing:-0.005em;
+    margin:0 0 10px;
+  }
+  .card:hover h2{color:var(--accent);}
+  .card p.summary{
+    font-size:0.9rem;
+    line-height:1.5;
+    color:var(--text-dim);
+    margin:0 0 12px;
+  }
+
+  footer{
+    margin-top:26px;
+    padding-top:22px;
+    border-top:3px double var(--text);
+    font-size:0.82rem;
+    color:var(--text-dim);
+    line-height:1.7;
+  }
+  footer strong{color:var(--text);}
+  footer p{max-width:70ch;margin:0 0 8px;}
+</style>
+</head>
+<body>
+
+<div class="util-bar">
+  <div class="wrap">
+    <span id="today-date">Tuesday, 10 November 2026</span>
+    <a href="index.html">Archive &rarr;</a>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="brand">The Southern<span class="dot">.</span>Wire</div>
+  <div class="tagline">South Africa &middot; Africa &middot; The World</div>
+</header>
+
+<nav class="deskrow">
+  <a href="../crime.html">Crime</a><a href="../sport.html">Sport</a><a href="../business.html">Business</a><a href="../politics.html">Politics</a><a href="../tech.html">Tech</a><a href="../screen.html">Screen</a><a href="../world.html">World</a><a href="../weather.html">Weather</a><a href="../lifestyle.html">Lifestyle</a>
+</nav>
+
+<main class="wrap">
+
+  <section class="top-stories">
+    <span class="ts-label">Top Stories</span>
+    <ol>
+      <li><a href="../posts/2026-11-10-joburg-coalition-deadlock-week-two.html">A week into Johannesburg's mayoral countdown, the clock is the only thing moving</a></li>
+      <li><a href="../posts/2026-11-10-matlala-hitman-trial-saayman-testimony.html">A trial-within-a-trial swallows another week of the Matlala hitman case</a></li>
+      <li><a href="../posts/2026-11-10-israel-knesset-sworn-in-eisenkot-mandate.html">Israel swears in its most right-wing parliament ever, and the real power play happens tomorrow</a></li>
+    </ol>
+  </section>
+
+  <section class="lead">
+    <a class="lead-link" href="../posts/2026-11-10-joburg-coalition-deadlock-week-two.html" aria-label="Read full story"></a>
+    <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
+    <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
+    <h1>A week into Johannesburg's mayoral countdown, the clock is the only thing moving</h1>
+    <p class="dek">Six days into the fourteen-day constitutional window to elect a mayor, Johannesburg's DA, ActionSA and ANC remain exactly where they started: no majority, no deal, and a feud over Helen Zille's candidacy that has produced plenty of insults but no counteroffer. An electoral overhang has meanwhile stripped the ANC of its own top two negotiators, leaving the party scrambling to find a new face just as its leverage matters most.</p>
+    <div class="byline">The Southern Wire Desk<span class="sep">&middot;</span>Johannesburg</div>
+    <span class="read-more">Read the full story &rarr;</span>
+  </section>
+
+  <div class="grid">
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-matlala-hitman-trial-saayman-testimony.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#e0392c,#8f1f16)"></div>
+      <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
+      <h2>A trial-within-a-trial swallows another week of the Matlala hitman case</h2>
+      <p class="summary">Forensic pathologist Prof Gert Saayman is giving evidence on co-accused Musa Kekana's claim that police assaulted him into a confession, delaying the main case against "Cat" Matlala and four others facing 300-plus years over three assassination attempts.</p>
+      <div class="byline">Crime Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-fuel-levy-relief-diluted-december-cliff.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>A one-cent cut and a December cliff: South Africa's fuel relief was never built to last</h2>
+      <p class="summary">Petrol fell by just one cent a litre on 4 November under a temporary R1.50 fuel levy cut that expires on 1 December, with diesel users getting more relief but everyone facing a price jump the moment the cut lapses.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-sarb-november-rate-decision-preview.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>The Reserve Bank's last call of the year is shaping up to be its closest</h2>
+      <p class="summary">Economists are split on whether the SARB will hike again at its 19 November meeting, with a temporary fuel levy cut muddying the inflation picture just as the Bank weighs its final decision of 2026.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-transnet-rail-reform-private-operators.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>Transnet's turnaround only works on paper so far, and the rail numbers show why</h2>
+      <p class="summary">A R4.6bn annual profit rests entirely on a one-off asset sale, masking an underlying R4.8bn loss, as Transnet leans on new Rail Access Agreements with eleven private operators to try to close a volume gap it has not closed alone.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-bafana-kenya-afcon-qualifier-buildup.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
+      <h2>Bafana Bafana's AFCON qualifying double-header starts at Orlando Stadium on Friday</h2>
+      <p class="summary">Pitso Mosimane's squad hosts Kenya in Soweto before a quick turnaround to Nairobi five days later, defending top spot in Group D with tickets priced at R100 for adults and R40 for kids.</p>
+      <div class="byline">Sport Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-openai-gpt6-cyber-critical-risk.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>OpenAI just shipped an AI built to find exploits, and rated it the riskiest model it has ever released</h2>
+      <p class="summary">GPT-6 Cyber scores nearly 50% higher than its predecessor at finding real vulnerabilities, already surfacing 81 unknown Firefox flaws, and carries OpenAI's own highest-ever internal risk rating.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-icasa-sim-cap-dispute-telcos.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>ICASA wants five SIM cards and your fingerprint; the industry wants twenty and no biometrics</h2>
+      <p class="summary">Draft rules capping subscribers at five SIMs per operator and requiring biometric verification have mobile operators pushing for a 20-SIM limit instead, arguing ICASA is regulating outside its own legal authority.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-rivals-season-two-disney-premiere.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#f59e0b,#b56d00)"></div>
+      <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
+      <h2>Jilly Cooper's gloriously trashy Rivals returns for round two this week</h2>
+      <p class="summary">David Tennant's 1980s broadcasting power struggle picks up a second season on Disney+ and Hulu, with the show now having to prove its scheming has somewhere new to go.</p>
+      <div class="byline">Culture Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-israel-knesset-sworn-in-eisenkot-mandate.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>Israel swears in its most right-wing parliament ever, and the real power play happens tomorrow</h2>
+      <p class="summary">President Herzog is expected to hand Gadi Eisenkot a government-forming mandate within a day, but Eisenkot's 67-seat bloc depends on Arab-party support several of his own partners campaigned against using.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-sudan-blue-nile-drone-assault-dam.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>A dam, a drone war and a blackout: Sudan's power grid becomes the newest front line</h2>
+      <p class="summary">A sustained RSF drone assault on Ed Damazin knocked out power near the Roseires Dam, prompting Sudan's cabinet to declare a maximum state of alert over a widening campaign against the country's electricity infrastructure.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-gauteng-storm-warnings-hail-flooding.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0284c7,#045078)"></div>
+      <span class="tag" style="color:#0284c7;background:#e0f2fe">Weather &amp; Snow</span>
+      <h2>Hail, flash floods and a warning that kept changing: Gauteng's storm week, explained</h2>
+      <p class="summary">A level 4 warning that put Ekurhuleni's rescue teams on high alert has eased to level 2, even as Mpumalanga and KwaZulu-Natal remain under the most severe storm warning SAWS issues.</p>
+      <div class="byline">Weather Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-hermanus-whale-season-closes-out.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>Hermanus's whale season is winding down, after the earliest start anyone can remember</h2>
+      <p class="summary">Southern right whales arrived off the Overberg coast as early as May this year, stretching a season that usually starts in June into one of the longest runs the cliff path has seen.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-taste-of-cape-town-festival-weekend.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>Africa's biggest food festival pitches its tent in Green Point in three weeks</h2>
+      <p class="summary">Taste of Cape Town returns to Green Point Cricket Club on 28 and 29 November with SABC as official broadcast partner, timed to catch the city's tourism season just as it starts building toward December.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-10-cape-town-coffee-show-debut.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>Cape Town gets its first dedicated coffee show, and Newlands Cricket Ground is the venue</h2>
+      <p class="summary">The inaugural Cape Town Coffee Show opens 21 and 22 November, a new entry in the city's festival calendar built specifically around a specialty coffee scene that has grown into a genuine industry.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+  </div>
+
+  <footer>
+    <p>Published from Johannesburg, South Africa. See the <a href="index.html" style="color:var(--accent)">archive</a> for past editions.</p>
+  </footer>
+
+</main>
+</body>
+</html>

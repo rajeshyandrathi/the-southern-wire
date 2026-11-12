@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Southern Wire &mdash; Thursday, 12 November 2026</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../assets/widgets.css">
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#f7f5f1;
+    --text:#141414;
+    --text-dim:#5c5c5c;
+    --border:rgba(0,0,0,0.13);
+    --accent:#2f8fe0;
+    --accent-soft:#e3f2fd;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0b0f14;
+      --surface:#12181f;
+      --text:#f2f2f0;
+      --text-dim:#a3a3a0;
+      --border:rgba(255,255,255,0.15);
+      --accent:#6cc0ff;
+      --accent-soft:#122a3d;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0b0f14; --surface:#12181f; --text:#f2f2f0; --text-dim:#a3a3a0;
+    --border:rgba(255,255,255,0.15); --accent:#6cc0ff; --accent-soft:#122a3d;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', -apple-system, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1140px;margin-inline:auto;padding-inline:24px;}
+
+  .util-bar{
+    border-bottom:1px solid var(--border);
+    font-size:0.72rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--text-dim);
+  }
+  .util-bar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-block:8px;flex-wrap:wrap;gap:8px;
+  }
+  .util-bar a{color:var(--text-dim);}
+  .util-bar a:hover{color:var(--accent);}
+
+  header.masthead{
+    text-align:center;
+    padding-block:22px 14px;
+  }
+  .brand{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2.1rem, 5.5vw, 3.2rem);
+    letter-spacing:-0.01em;
+  }
+  .brand .dot{color:var(--accent);}
+  .tagline{
+    font-size:0.76rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--text-dim);
+    margin-top:4px;
+  }
+
+  nav.deskrow{
+    border-top:1px solid var(--text);
+    border-bottom:1px solid var(--border);
+    display:flex;justify-content:center;gap:2px;
+    overflow-x:auto;
+    font-size:0.78rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.04em;
+    white-space:nowrap;
+  }
+  nav.deskrow a{
+    color:var(--text);
+    padding:11px 16px;
+    border-bottom:2px solid transparent;
+  }
+  nav.deskrow a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+
+  main{padding-block:30px 64px;}
+
+  .top-stories{
+    border:1px solid var(--border);
+    padding:14px 18px;
+    margin-bottom:34px;
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .top-stories .ts-label{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:0.9rem;font-weight:700;
+    color:var(--accent);
+    white-space:nowrap;
+  }
+  .top-stories ol{
+    list-style:none;margin:0;padding:0;
+    display:flex;gap:22px;flex-wrap:wrap;
+    flex:1;
+  }
+  .top-stories li{
+    font-size:0.88rem;font-weight:600;
+  }
+  .top-stories a:hover{color:var(--accent);}
+
+  .tag{
+    display:inline-block;
+    font-size:0.68rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.05em;
+    padding:3px 9px;
+    border-radius:2px;
+    margin-bottom:12px;
+  }
+
+  .cover{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:3px;
+    margin-bottom:16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 14px),
+      radial-gradient(circle at 78% 22%, rgba(255,255,255,0.35), transparent 45%);
+  }
+  .lead .cover{aspect-ratio:2.2/1;}
+
+  .byline{
+    font-size:0.76rem;
+    color:var(--text-dim);
+    font-weight:600;
+    font-style:italic;
+  }
+  .byline .sep{margin:0 6px;opacity:0.5;font-style:normal;}
+  .read-more{
+    font-size:0.78rem;font-weight:700;color:var(--accent);
+    margin-top:12px;display:inline-block;
+  }
+
+  .lead{
+    position:relative;
+    padding-bottom:32px;
+    margin-bottom:34px;
+    border-bottom:3px double var(--text);
+  }
+  .lead-link{position:absolute;inset:0;z-index:1;}
+  .lead h1{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2rem, 4.8vw, 3.1rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    margin:0 0 14px;
+    max-width:20ch;
+  }
+  .lead p.dek{
+    font-size:1.1rem;
+    line-height:1.55;
+    color:var(--text-dim);
+    max-width:62ch;
+    margin:0 0 14px;
+    font-weight:400;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-top:1px solid var(--border);
+    border-left:1px solid var(--border);
+  }
+  @media (max-width:860px){
+    .grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr;}
+  }
+  .card{
+    position:relative;
+    padding:22px 22px 24px;
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .card-link{position:absolute;inset:0;z-index:1;}
+  .card h2{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:1.22rem;
+    line-height:1.25;
+    letter-spacing:-0.005em;
+    margin:0 0 10px;
+  }
+  .card:hover h2{color:var(--accent);}
+  .card p.summary{
+    font-size:0.9rem;
+    line-height:1.5;
+    color:var(--text-dim);
+    margin:0 0 12px;
+  }
+
+  footer{
+    margin-top:26px;
+    padding-top:22px;
+    border-top:3px double var(--text);
+    font-size:0.82rem;
+    color:var(--text-dim);
+    line-height:1.7;
+  }
+  footer strong{color:var(--text);}
+  footer p{max-width:70ch;margin:0 0 8px;}
+</style>
+</head>
+<body>
+
+<div class="util-bar">
+  <div class="wrap">
+    <span>Thursday, 12 November 2026</span>
+    <a href="index.html">Archive &rarr;</a>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="brand">The Southern<span class="dot">.</span>Wire</div>
+  <div class="tagline">South Africa &middot; Africa &middot; The World</div>
+</header>
+
+<nav class="deskrow">
+  <a href="../crime.html">Crime</a><a href="../sport.html">Sport</a><a href="../business.html">Business</a><a href="../politics.html">Politics</a><a href="../tech.html">Tech</a><a href="../screen.html">Screen</a><a href="../world.html">World</a><a href="../weather.html">Weather</a><a href="../lifestyle.html">Lifestyle</a>
+</nav>
+
+<main class="wrap">
+
+  <section class="top-stories">
+    <span class="ts-label">Top Stories</span>
+    <ol>
+      <li><a href="../posts/2026-11-12-joburg-coalition-thursday-decision.html">Johannesburg's coalition math comes down to a single Thursday meeting</a></li>
+      <li><a href="../posts/2026-11-12-matlala-trial-commission-in-camera.html">Matlala's Thursday: a High Court trial in session and a commission going dark</a></li>
+      <li><a href="../posts/2026-11-12-moscow-briefing-abu-dhabi-outcome.html">Two envoys fly to Moscow carrying an Abu Dhabi deal that settled almost nothing</a></li>
+    </ol>
+  </section>
+
+  <section class="lead">
+    <a class="lead-link" href="../posts/2026-11-12-joburg-coalition-thursday-decision.html" aria-label="Read full story"></a>
+    <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
+    <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
+    <h1>Johannesburg's coalition math comes down to a single Thursday meeting</h1>
+    <p class="dek">The DA and ActionSA are sitting down today to answer the question Herman Mashaba's letter posed a week ago: can Johannesburg's two biggest coalition partners share power without Helen Zille anywhere near the mayor's chair. Neither side has produced a fallback plan if the answer is no.</p>
+    <div class="byline">The Southern Wire Desk<span class="sep">&middot;</span>Johannesburg</div>
+    <span class="read-more">Read the full story &rarr;</span>
+  </section>
+
+  <div class="grid">
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-matlala-trial-commission-in-camera.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#e0392c,#8f1f16)"></div>
+      <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
+      <h2>Matlala's Thursday: a High Court trial in session and a commission going dark</h2>
+      <p class="summary">His attempted murder trial has resumed in Johannesburg while the Madlanga Commission pivots into closed, in-camera hearings today and tomorrow &mdash; two fronts, moving at once, neither one resolved.</p>
+      <div class="byline">Crime Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-moscow-briefing-abu-dhabi-outcome.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>Two envoys fly to Moscow carrying an Abu Dhabi deal that settled almost nothing</h2>
+      <p class="summary">Witkoff and Kushner brief Putin today on a prisoner-exchange agreement that leaves Russia's core demands on NATO and military limits exactly where they were before Abu Dhabi's delegations sat down.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-sudan-power-grid-hospitals-blackout.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
+      <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &amp; Africa</span>
+      <h2>Sudan's maximum alert has a quieter casualty: the hospitals the grid used to power</h2>
+      <p class="summary">Fourteen power stations down and counting: as Khartoum trades accusations with Ethiopia and the UAE, aid workers describe hospitals rationing generator fuel and water pumps cycling on and off to conserve diesel.</p>
+      <div class="byline">Politics Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-zimbabwe-mercenary-network-repatriation.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#e0392c,#8f1f16)"></div>
+      <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
+      <h2>Nine men in a Kempton Park courtroom are the visible edge of a much larger pipeline</h2>
+      <p class="summary">Zimbabwean authorities say more than a thousand of their citizens are awaiting repatriation from recruitment routes running through South Africa to Russia's front lines &mdash; a scale the nine-man case barely begins to capture.</p>
+      <div class="byline">Crime Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-springboks-france-paris-record.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
+      <h2>Nine wins in ten, five in a row at the Stade de France: the record the Boks carry into Friday</h2>
+      <p class="summary">Rassie Erasmus has made just one change to the side that demolished Italy, with Eben Etzebeth settled back in and France publicly warning it intends to strike first this time.</p>
+      <div class="byline">Sport Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-bafana-kenya-orlando-eve.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
+      <h2>Top of the group, one night from a derby: Bafana's eve in Soweto</h2>
+      <p class="summary">A win over Benni McCarthy's Kenya at Orlando Stadium would put Group D all but out of reach; anything less turns next week's trip to Nairobi into a genuine six-pointer.</p>
+      <div class="byline">Sport Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-nedbank-golf-challenge-field.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
+      <h2>Grace returns to the course where he was last South African to win, into one of the strongest fields in years</h2>
+      <p class="summary">Branden Grace and breakout star Aldrich Potgieter join a Nedbank Golf Challenge field that includes Bubba Watson, Wyndham Clark, Bryson DeChambeau and Justin Rose at the revamped Gary Player Country Club.</p>
+      <div class="byline">Sport Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-fuel-price-levy-relief-households.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>Petrol fell by a single cent. Households felt none of it.</h2>
+      <p class="summary">A R10 billion fuel-levy package produced a one-cent petrol saving this month, while early data already points to a 53-to-84-cent increase looming in December.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-inflation-cpi-release-date.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>The number due in six days that will decide whether the Reserve Bank cuts again</h2>
+      <p class="summary">September's CPI print of 4.5% already sits above the Reserve Bank's new 3% target; October's figure, due 18 November, will decide how much patience the Bank has left.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-transnet-rail-reform-task-team.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>Transnet's rail arm is finally being cut loose. A task team will decide how.</h2>
+      <p class="summary">A new task team is being assembled before year-end to separate Transnet's Rail Infrastructure Manager and ports authority from the group, after Grindrod ran the network's first private test train.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-anthropic-ipo-nasdaq-ticker-ant.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>The ticker is ANT. The valuation debate is far from settled.</h2>
+      <p class="summary">Anthropic's public S-1 has turned months of speculation into a numbered filing, with a Nasdaq listing targeted for the week of 16 November and reported valuation talk reaching toward $2 trillion.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-ai-benchmark-rigor-study.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>The numbers AI companies quote at you may not mean what you think</h2>
+      <p class="summary">A new Oxford-affiliated study finds the overwhelming majority of AI benchmarks lack basic scientific rigor, undercutting the leaderboard charts labs use to justify valuations running into the hundreds of billions.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-wise-revolut-south-africa-banking.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>Two European fintech giants are circling South African banking at the same time</h2>
+      <p class="summary">Wise has conditional approval to launch, and Revolut has filed its own licence application, arriving just as Lesaka, Mukuru and a string of local challengers have spent two years softening the ground.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-rivals-season-two-netflix.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#f59e0b,#b56d00)"></div>
+      <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
+      <h2>Rivals splits its second season in two, and the gamble is paying off</h2>
+      <p class="summary">Three new episodes have landed with the rest following weekly, a rare bet on appointment viewing from a soapy 1980s-set drama that has earned exactly the loyalty the format needs.</p>
+      <div class="byline">Culture Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-sa-film-incentive-talks-collapse.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#f59e0b,#b56d00)"></div>
+      <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
+      <h2>Talks collapse for a third time, and South Africa's film industry runs out of patience</h2>
+      <p class="summary">The Save SA Film and TV Jobs Coalition is now appealing directly to the Presidency after negotiations with the DTIC over the production incentive broke down for a third time.</p>
+      <div class="byline">Culture Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-venezuela-machado-washington-meeting.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>Machado heads to Washington, and the question of who actually leads Venezuela gets louder</h2>
+      <p class="summary">Trump plans to meet opposition leader Maria Corina Machado next week, even as his administration treats Delcy Rodriguez's acting government, not Machado, as the one actually cooperating on the ground.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-saws-summer-outlook-el-nino.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0284c7,#045078)"></div>
+      <span class="tag" style="color:#0284c7;background:#e0f2fe">Weather &amp; Snow</span>
+      <h2>SAWS's summer outlook: a hotter, drier season for parts of South Africa</h2>
+      <p class="summary">A developing El Nino pattern is tilting the odds toward below-normal rainfall and above-normal temperatures across large parts of the country this summer, SAWS's seasonal outlook shows.</p>
+      <div class="byline">Weather Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-hermanus-whale-season-ending.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>The whales are still in Walker Bay. They won't be much longer.</h2>
+      <p class="summary">Hermanus is entering the final weeks of a whale season that has delivered reliably close sightings all year, with fewer crowds now than during October's festival peak.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-kruger-poaching-shootout-ranger.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>A shootout, a hospitalised teenager, and Kruger's relentless fight against poaching</h2>
+      <p class="summary">An eighteen-year-old is recovering under police guard after exchanging fire with rangers earlier this month, the latest flashpoint in a poaching war running alongside the park's flood recovery.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-12-tourism-visa-reform-air-access.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>South Africa wants 15 million visitors a year. Its own visa rules are the obstacle.</h2>
+      <p class="summary">Tourism Minister Patricia de Lille is pushing air access and visa reform as arrivals climb 12.8% this year, even as industry voices keep flagging processing delays in the new electronic travel system.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+  </div>
+
+  <footer>
+    <p>Published from Johannesburg, South Africa. See the <a href="index.html" style="color:var(--accent)">archive</a> for past editions.</p>
+  </footer>
+
+</main>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

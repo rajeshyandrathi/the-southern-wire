@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Southern Wire &mdash; Friday, 13 November 2026</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../assets/widgets.css">
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#f7f5f1;
+    --text:#141414;
+    --text-dim:#5c5c5c;
+    --border:rgba(0,0,0,0.13);
+    --accent:#2f8fe0;
+    --accent-soft:#e3f2fd;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0b0f14;
+      --surface:#12181f;
+      --text:#f2f2f0;
+      --text-dim:#a3a3a0;
+      --border:rgba(255,255,255,0.15);
+      --accent:#6cc0ff;
+      --accent-soft:#122a3d;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0b0f14; --surface:#12181f; --text:#f2f2f0; --text-dim:#a3a3a0;
+    --border:rgba(255,255,255,0.15); --accent:#6cc0ff; --accent-soft:#122a3d;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', -apple-system, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1140px;margin-inline:auto;padding-inline:24px;}
+
+  .util-bar{
+    border-bottom:1px solid var(--border);
+    font-size:0.72rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--text-dim);
+  }
+  .util-bar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-block:8px;flex-wrap:wrap;gap:8px;
+  }
+  .util-bar a{color:var(--text-dim);}
+  .util-bar a:hover{color:var(--accent);}
+
+  header.masthead{
+    text-align:center;
+    padding-block:22px 14px;
+  }
+  .brand{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2.1rem, 5.5vw, 3.2rem);
+    letter-spacing:-0.01em;
+  }
+  .brand .dot{color:var(--accent);}
+  .tagline{
+    font-size:0.76rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--text-dim);
+    margin-top:4px;
+  }
+
+  nav.deskrow{
+    border-top:1px solid var(--text);
+    border-bottom:1px solid var(--border);
+    display:flex;justify-content:center;gap:2px;
+    overflow-x:auto;
+    font-size:0.78rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.04em;
+    white-space:nowrap;
+  }
+  nav.deskrow a{
+    color:var(--text);
+    padding:11px 16px;
+    border-bottom:2px solid transparent;
+  }
+  nav.deskrow a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+
+  main{padding-block:30px 64px;}
+
+  .top-stories{
+    border:1px solid var(--border);
+    padding:14px 18px;
+    margin-bottom:34px;
+    display:flex;
+    align-items:baseline;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .top-stories .ts-label{
+    font-family:'Playfair Display', serif;
+    font-style:italic;
+    font-size:0.9rem;font-weight:700;
+    color:var(--accent);
+    white-space:nowrap;
+  }
+  .top-stories ol{
+    list-style:none;margin:0;padding:0;
+    display:flex;gap:22px;flex-wrap:wrap;
+    flex:1;
+  }
+  .top-stories li{
+    font-size:0.88rem;font-weight:600;
+  }
+  .top-stories a:hover{color:var(--accent);}
+
+  .tag{
+    display:inline-block;
+    font-size:0.68rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.05em;
+    padding:3px 9px;
+    border-radius:2px;
+    margin-bottom:12px;
+  }
+
+  .cover{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:3px;
+    margin-bottom:16px;
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 14px),
+      radial-gradient(circle at 78% 22%, rgba(255,255,255,0.35), transparent 45%);
+  }
+  .lead .cover{aspect-ratio:2.2/1;}
+
+  .byline{
+    font-size:0.76rem;
+    color:var(--text-dim);
+    font-weight:600;
+    font-style:italic;
+  }
+  .byline .sep{margin:0 6px;opacity:0.5;font-style:normal;}
+  .read-more{
+    font-size:0.78rem;font-weight:700;color:var(--accent);
+    margin-top:12px;display:inline-block;
+  }
+
+  .lead{
+    position:relative;
+    padding-bottom:32px;
+    margin-bottom:34px;
+    border-bottom:3px double var(--text);
+  }
+  .lead-link{position:absolute;inset:0;z-index:1;}
+  .lead h1{
+    font-family:'Playfair Display', serif;
+    font-weight:800;
+    font-size:clamp(2rem, 4.8vw, 3.1rem);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    margin:0 0 14px;
+    max-width:20ch;
+  }
+  .lead p.dek{
+    font-size:1.1rem;
+    line-height:1.55;
+    color:var(--text-dim);
+    max-width:62ch;
+    margin:0 0 14px;
+    font-weight:400;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-top:1px solid var(--border);
+    border-left:1px solid var(--border);
+  }
+  @media (max-width:860px){
+    .grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr;}
+  }
+  .card{
+    position:relative;
+    padding:22px 22px 24px;
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .card-link{position:absolute;inset:0;z-index:1;}
+  .card h2{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:1.22rem;
+    line-height:1.25;
+    letter-spacing:-0.005em;
+    margin:0 0 10px;
+  }
+  .card:hover h2{color:var(--accent);}
+  .card p.summary{
+    font-size:0.9rem;
+    line-height:1.5;
+    color:var(--text-dim);
+    margin:0 0 12px;
+  }
+
+  footer{
+    margin-top:26px;
+    padding-top:22px;
+    border-top:3px double var(--text);
+    font-size:0.82rem;
+    color:var(--text-dim);
+    line-height:1.7;
+  }
+  footer strong{color:var(--text);}
+  footer p{max-width:70ch;margin:0 0 8px;}
+</style>
+</head>
+<body>
+
+<div class="util-bar">
+  <div class="wrap">
+    <span>Friday, 13 November 2026</span>
+    <a href="index.html">Archive &rarr;</a>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="brand">The Southern<span class="dot">.</span>Wire</div>
+  <div class="tagline">South Africa &middot; Africa &middot; The World</div>
+</header>
+
+<nav class="deskrow">
+  <a href="../crime.html">Crime</a><a href="../sport.html">Sport</a><a href="../business.html">Business</a><a href="../politics.html">Politics</a><a href="../tech.html">Tech</a><a href="../screen.html">Screen</a><a href="../world.html">World</a><a href="../weather.html">Weather</a><a href="../lifestyle.html">Lifestyle</a>
+</nav>
+
+<main class="wrap">
+
+  <section class="top-stories">
+    <span class="ts-label">Top Stories</span>
+    <ol>
+      <li><a href="../posts/2026-11-13-matlala-commission-investigator-doctored-statement.html">Cat Matlala accuses his own investigator of rewriting the statement that was supposed to convict him</a></li>
+      <li><a href="../posts/2026-11-13-joburg-coalition-frank-productive-no-deal.html">Frank, productive, and still no mayor: Johannesburg's coalition talks run into a second week</a></li>
+      <li><a href="../posts/2026-11-13-eskom-540-days-no-load-shedding.html">Five hundred and forty days without load shedding, and Eskom is finally arguing about what comes next</a></li>
+    </ol>
+  </section>
+
+  <section class="lead">
+    <a class="lead-link" href="../posts/2026-11-13-matlala-commission-investigator-doctored-statement.html" aria-label="Read full story"></a>
+    <div class="cover" style="background:linear-gradient(135deg,#e0392c,#8f1f16)"></div>
+    <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
+    <h1>Cat Matlala accuses his own investigator of rewriting the statement that was supposed to convict him</h1>
+    <p class="dek">In a dramatic reversal of the usual courtroom dynamic, murder-accused businessman Vusimuzi "Cat" Matlala told the Madlanga Commission this week that the IDAC investigator who took his Section 204 statement altered it repeatedly, inserting claims about senior police officials that Matlala says he never made.</p>
+    <div class="byline">The Southern Wire Desk<span class="sep">&middot;</span>Johannesburg</div>
+    <span class="read-more">Read the full story &rarr;</span>
+  </section>
+
+  <div class="grid">
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-joburg-coalition-frank-productive-no-deal.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
+      <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
+      <h2>Frank, productive, and still no mayor: Johannesburg's coalition talks run into a second week</h2>
+      <p class="summary">Herman Mashaba and Geordin Hill-Lewis came out of Thursday's meeting calling it constructive, but neither side has said yes to the other's terms, and the swap Mashaba is offering &mdash; himself and Helen Zille both stepping back &mdash; still has no answer.</p>
+      <div class="byline">Politics Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-eskom-540-days-no-load-shedding.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>Five hundred and forty days without load shedding, and Eskom is finally arguing about what comes next</h2>
+      <p class="summary">South Africa's longest stretch without rolling blackouts in over a decade has Eskom shifting its public message from crisis management to sustaining the gains, even as it warns the risk of a relapse has not disappeared.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-zimbabwe-mercenary-pipeline-johannesburg-court.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#e0392c,#8f1f16)"></div>
+      <span class="tag" style="color:#e0392c;background:#fdeceb">Crime &amp; Courts</span>
+      <h2>Nine suspects, two courtrooms, one pipeline: the Russia-recruitment case widens again</h2>
+      <p class="summary">Four more men accused of trying to join Zimbabwean nationals en route to Russia's front lines were due in a Johannesburg court this week, a second courtroom front in a recruitment case that has already drawn a presidential order for an investigation into how seventeen men ended up recruited for what Pretoria calls "seemingly mercenary activities."</p>
+      <div class="byline">Crime Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-sudan-grid-collapse-hospitals-worsen.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#8b5cf6,#5228b8)"></div>
+      <span class="tag" style="color:#8b5cf6;background:#f1ebfe">Politics &mdash; SA &amp; Africa</span>
+      <h2>Fifteen substations down since October: Sudan's power collapse is now a hospital crisis with no fix in sight</h2>
+      <p class="summary">Drone strikes blamed on the RSF have knocked out electricity across swathes of army-held Sudan, and the damage &mdash; hospitals rationing generator fuel, dialysis units going dark, entire states cut from the grid &mdash; is now expected to last for months, not weeks.</p>
+      <div class="byline">Politics Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-springboks-france-paris-decider.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
+      <h2>Nine wins in ten against France, and tonight the Boks go back to Paris to defend the run</h2>
+      <p class="summary">Rassie Erasmus's Springboks head into the Stade de France off a 32-17 win there twelve months ago, with Manie Libbok named among the replacements and France recalling its senior spine for one more shot at revenge.</p>
+      <div class="byline">Sport Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-bafana-kenya-orlando-qualifier.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
+      <h2>Top of Group D and unbeaten under Mosimane, Bafana face Kenya for the result that puts qualification almost out of reach</h2>
+      <p class="summary">A rematch of sorts between Pitso Mosimane and Benni McCarthy plays out at Orlando Stadium tonight, with Bafana chasing a fourth straight win since Mosimane's return and Kenya determined not to be underestimated again.</p>
+      <div class="byline">Sport Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-proteas-bangladesh-wanderers-test.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#1f9d55,#0d5c33)"></div>
+      <span class="tag" style="color:#1f9d55;background:#e7f8ee">Sport</span>
+      <h2>The Proteas assemble in Johannesburg as cricket's top-ranked Test side turns to Bangladesh</h2>
+      <p class="summary">Fresh off a come-from-behind series win over Australia, South Africa gather at the Wanderers for a two-Test series against Bangladesh, with Anrich Nortje and Tony de Zorzi both recalled to a squad still ranked world number one.</p>
+      <div class="byline">Sport Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-petrol-price-december-fuel-levy-split.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>After a one-cent save, December is shaping up as petrol's best month in years &mdash; diesel is heading the other way</h2>
+      <p class="summary">Fresh Central Energy Fund data points to a petrol price cut of more than a rand and a half a litre in December, even as a shrinking fuel-levy relief pushes diesel prices higher in the same adjustment.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-transnet-rail-manager-task-team.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#2f6fed,#1a3f9e)"></div>
+      <span class="tag" style="color:#2f6fed;background:#e8effe">Business &amp; Economy</span>
+      <h2>Transnet's rail network is finally being cut loose from the company that has run it for a century</h2>
+      <p class="summary">A technical task team is being assembled before year-end to finalise the corporatisation of the Transnet Rail Infrastructure Manager, after Operation Vulindlela flagged the separation as running behind schedule.</p>
+      <div class="byline">Business Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-anthropic-ipo-price-range-set.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>Anthropic sets its price. The valuation argument is just getting started.</h2>
+      <p class="summary">Anthropic's amended filing puts a $70-to-$78 price tag on 825 million shares and a Nasdaq debut as early as next week, turning months of speculation into a number investors now have to defend or dismantle.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-nvidia-huang-congress-briefing-earnings.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>Congress wants Jensen Huang in a closed room, nine days before Nvidia tells Wall Street how it did</h2>
+      <p class="summary">Three US House committee chairs have requested a joint, closed-door briefing with Nvidia's chief executive on 18 November, pushing the espionage questions hanging over him directly into the same week markets expect his company's third-quarter results.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-lesaka-bank-zero-deal-delay.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+      <span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+      <h2>A R1.1-billion bank deal clears every hurdle except the ones that actually decide it</h2>
+      <p class="summary">Patrice Motsepe-linked Lesaka Technologies has pushed its long-stop date for buying Bank Zero's parent out to January 2027, with competition approval long since banked but the Reserve Bank's and Prudential Authority's sign-offs still outstanding.</p>
+      <div class="byline">Tech Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-polygamist-leads-nfta-nominations.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#f59e0b,#b56d00)"></div>
+      <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
+      <h2>'The Polygamist' leads South Africa's newest screen awards into their fourth year</h2>
+      <p class="summary">Stained Glass Productions' drama has topped the nominations for the National Film &amp; TV Awards South Africa, with the ceremony approaching later this month as the ailing local industry looks for something to celebrate.</p>
+      <div class="byline">Culture Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-rivals-season-two-part-two-returns.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#f59e0b,#b56d00)"></div>
+      <span class="tag" style="color:#f59e0b;background:#fef2e0">Film &amp; Screen</span>
+      <h2>'Rivals' returns to Rutshire, and the split-season gamble keeps paying off</h2>
+      <p class="summary">The second batch of Rivals' sophomore season has landed on Disney+ and Hulu with a three-episode premiere, extending a bet on appointment viewing that the soapy 1980s-set drama has earned through sheer audience loyalty.</p>
+      <div class="byline">Culture Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-moscow-briefing-prisoner-swap-no-breakthrough.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>A Moscow handshake, an Irish briefing, and a prisoner swap that still isn't peace</h2>
+      <p class="summary">Witkoff and Kushner carried the Abu Dhabi talks' only concrete result &mdash; a deal in principle to exchange 314 prisoners &mdash; from the Kremlin to a briefing with Zelensky in Ireland, even as Kyiv accused Moscow of throttling its satellite internet again and the two sides openly disagreed about who gets a seat at the next round.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-iran-qeshm-island-strikes-escalation.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#64748b,#38414d)"></div>
+      <span class="tag" style="color:#64748b;background:#eef1f4">World</span>
+      <h2>Trump calls the Qeshm Island strikes "minor." Tehran isn't so sure.</h2>
+      <p class="summary">Fresh US strikes on Iranian air-defence positions on Qeshm Island, days after midterm voters punished Trump over the drawn-out conflict, have revived talk of hitting Iran's most fortified nuclear site even as Qatar pushes an interim deal to stop the spiral.</p>
+      <div class="byline">World Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-saws-volatile-summer-storms-heat.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#0284c7,#045078)"></div>
+      <span class="tag" style="color:#0284c7;background:#e0f2fe">Weather &amp; Snow</span>
+      <h2>A volatile week of hail, floods and heat previews summer's hotter, drier mood swings</h2>
+      <p class="summary">Level 4 storm warnings tore through Gauteng, Mpumalanga and KwaZulu-Natal while the Northern Cape baked past 40 degrees in the same stretch of days &mdash; forecasters say it's exactly the kind of swing between drought stress and destructive downpours this El Nino-tilted summer was built to bring.</p>
+      <div class="byline">Weather Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-taste-festival-cape-town-dates-confirmed.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>Cape Town just got the date for its first global food festival, and it's bringing its own TV deal</h2>
+      <p class="summary">The Taste Festival's long-rumoured South African debut now has fixed dates &mdash; the last weekend of November at Green Point Cricket Club &mdash; and a national broadcaster has signed on to carry it live.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-kruger-skukuza-gate-closure.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>Kruger shuts its best-known gate for a month, just as the region's conservation diplomats arrive</h2>
+      <p class="summary">Skukuza's main gate is closed to visitors until early December for works, a routine inconvenience that happens to coincide with South Africa hosting the continent's transfrontier conservation network and a heritage symposium inside the same park.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+    <article class="card">
+      <a class="card-link" href="../posts/2026-11-13-prasa-r50bn-upgrade-mabopane-overcrowding.html" aria-label="Read full story"></a>
+      <div class="cover" style="background:linear-gradient(135deg,#d6336c,#7a1638)"></div>
+      <span class="tag" style="color:#d6336c;background:#fde8f0">Lifestyle</span>
+      <h2>A R50 billion number, a new bus fleet and a refurbished station: Pretoria gets a look at PRASA's recovery in hard figures</h2>
+      <p class="summary">Transport Minister Barbara Creecy used an oversight visit to Pretoria to put a price tag on the state rail agency's turnaround &mdash; and to confront the overcrowding that recovery itself has created on the capital's busiest line.</p>
+      <div class="byline">Lifestyle Desk</div>
+    </article>
+
+  </div>
+
+  <footer>
+    <p>Published from Johannesburg, South Africa. See the <a href="index.html" style="color:var(--accent)">archive</a> for past editions.</p>
+  </footer>
+
+</main>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

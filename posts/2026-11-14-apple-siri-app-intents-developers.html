@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple finally lets outside developers build on Siri, years after promising it would &mdash; The Southern Wire</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../assets/widgets.css">
+<style>
+  :root{ --bg:#ffffff; --surface:#f7f5f1; --text:#141414; --text-dim:#5c5c5c; --border:rgba(0,0,0,0.13); --accent:#2f8fe0; --accent-soft:#e3f2fd; }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --bg:#0b0f14; --surface:#12181f; --text:#f2f2f0; --text-dim:#a3a3a0; --border:rgba(255,255,255,0.15); --accent:#6cc0ff; --accent-soft:#122a3d; }
+  }
+  :root[data-theme="dark"]{ --bg:#0b0f14; --surface:#12181f; --text:#f2f2f0; --text-dim:#a3a3a0; --border:rgba(255,255,255,0.15); --accent:#6cc0ff; --accent-soft:#122a3d; }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:760px;margin-inline:auto;padding-inline:20px;}
+  header.topbar{border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:10;}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;padding-block:16px;gap:12px;flex-wrap:wrap;max-width:1080px;margin-inline:auto;padding-inline:20px;}
+  .brand{font-family:'Playfair Display',serif;font-weight:800;font-size:1.35rem;letter-spacing:-0.01em;}
+  .brand .dot{color:var(--accent);}
+  .topbar-meta{font-size:0.8rem;color:var(--text-dim);font-weight:500;}
+  .topbar-meta a:hover{color:var(--accent);}
+  main{padding-block:36px 60px;}
+  .back-link{font-size:0.85rem;color:var(--text-dim);margin-bottom:20px;display:inline-block;}
+  .back-link:hover{color:var(--accent);}
+  .cover{width:100%;aspect-ratio:2.2/1;border-radius:3px;margin-bottom:20px;position:relative;overflow:hidden;}
+  .cover::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0.09) 0 2px, transparent 2px 14px),radial-gradient(circle at 78% 22%, rgba(255,255,255,0.35), transparent 45%);}
+  .tag{display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:3px 9px;border-radius:2px;margin-bottom:12px;}
+  h1{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(1.9rem,4.4vw,2.8rem);line-height:1.1;letter-spacing:-0.005em;margin:0 0 16px;color:var(--text);}
+  .byline{font-size:0.85rem;color:var(--text-dim);font-weight:600;font-style:italic;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+  .byline .sep{margin:0 6px;opacity:0.5;font-style:normal;}
+  article p{font-size:1.05rem;line-height:1.7;margin:0 0 20px;}
+  footer{margin-top:40px;padding-top:24px;border-top:1px solid var(--border);font-size:0.82rem;color:var(--text-dim);line-height:1.7;}
+  footer p{max-width:70ch;margin:0 0 8px;}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">The Southern<span class="dot">.</span>Wire</div>
+    <div class="topbar-meta"><a href="../index.html">Home</a></div>
+  </div>
+</header>
+
+<main class="wrap" style="border-top:3px solid #0ea5b0">
+  <a class="back-link" href="../index.html">&larr; Back to today's edition</a>
+    <div class="cover" style="background:linear-gradient(135deg,#0ea5b0,#075e66)"></div>
+<span class="tag" style="color:#0ea5b0;background:#e3f7f6">Sci &amp; Tech</span>
+  <h1>Apple finally lets outside developers build on Siri, years after promising it would</h1>
+  <div class="byline">Tech Desk</div>
+
+  <article>
+    <p>Apple has opened its Siri voice assistant to outside developers through App Intents, starting with the betas of iOS 27.3, closing a gap between Apple's AI ambitions and its rivals' that has sat open for years longer than the company would have liked to admit. The framework lets third-party apps expose specific actions &mdash; booking a ride, sending a message within another app, controlling a smart-home device &mdash; directly to Siri, so a voice command can trigger functionality the assistant itself was never built to understand natively.</p>
+    <p>The gap this closes is a real one. Google's Assistant and Amazon's Alexa have let third-party developers plug actions into their ecosystems for years, building the kind of broad, unpredictable usefulness that comes from thousands of developers extending a platform rather than a single company trying to anticipate every request itself. Siri, by contrast, has spent much of the past several years as a punchline among people who use it daily, hamstrung by a closed architecture that made even simple third-party integrations clumsy or impossible.</p>
+    <p>App Intents is not a brand-new framework invented for this moment; Apple introduced it for first-party use inside its own ecosystem features before now extending it outward to any developer willing to build against it. That incremental path matters for how quickly the change will actually be felt: adoption depends on developers choosing to invest engineering time in Siri-specific integration on top of whatever they have already built for Apple's other platforms, work that will not happen instantly just because the door is now open.</p>
+    <p>For consumers, the near-term effect will be uneven. Popular apps with the engineering resources to prioritise Siri integration will likely move first, while the long tail of smaller developers may take considerably longer to catch up, if they bother at all. The practical test of whether this update matters will be less about what Apple announced and more about how many of the apps people actually use every day choose to show up inside Siri once the capability exists.</p>
+    <p>Apple's broader AI strategy has drawn sustained criticism for lagging competitors on generative features, and opening Siri to developers does not by itself resolve that criticism. What it does is remove one of the more concrete, long-standing complaints about the assistant's usefulness, trading a promise the company has made before for a framework developers can now actually build against.</p>
+  </article>
+
+  <footer>
+    <p>Published from Johannesburg, South Africa. <a href="../index.html" style="color:var(--accent)">Return to today's edition</a>.</p>
+  </footer>
+</main>
+<script src="../assets/config.js"></script>
+<script src="../assets/site.js"></script>
+</body>
+</html>

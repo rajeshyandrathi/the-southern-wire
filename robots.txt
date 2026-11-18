@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thesouthernwire.netlify.app/sitemap.xml
+Sitemap: https://thesouthernwire.co.za/sitemap.xml

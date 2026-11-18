@@ -12,7 +12,7 @@ import datetime
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 POSTS = ROOT / "posts"
-SITE_URL = "https://thesouthernwire.netlify.app"  # update once a custom domain is live
+SITE_URL = "https://thesouthernwire.co.za"
 
 TITLE_RE = re.compile(r"<h1>(.*?)</h1>", re.S)
 TAG_RE = re.compile(r'<span class="tag"[^>]*>(.*?)</span>', re.S)
@@ -48,6 +48,8 @@ def build_sitemap(posts):
             "tech.html", "screen.html", "world.html", "weather.html",
             "lifestyle.html", "about.html", "privacy.html", "terms.html",
             "contact.html", "archive/index.html"]
+    urls += [f"archive/{p.name}" for p in sorted((ROOT / "archive").glob("*.html"))
+             if p.name != "index.html"]
     urls += [p["url"] for p in posts]
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -57,7 +59,7 @@ def build_sitemap(posts):
     (ROOT / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 def build_rss(posts):
-    latest = sorted(posts, key=lambda p: p["date"], reverse=True)[:30]
+    latest = sorted(posts, key=lambda p: p["date"], reverse=True)[:50]
     now = datetime.datetime.now(datetime.timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")
     items = []
     for p in latest:

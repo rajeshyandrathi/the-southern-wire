@@ -17,7 +17,7 @@
 */
 window.SW_CONFIG = {
   GA_MEASUREMENT_ID: "",            // e.g. "G-ABC1234567"
-  ADSENSE_CLIENT_ID: "",            // e.g. "ca-pub-1234567890123456"
+  ADSENSE_CLIENT_ID: "ca-pub-2954954234821721",
   ADSENSE_SLOT_TOP: "",             // e.g. "1234567890"
   ADSENSE_SLOT_INARTICLE: "",       // e.g. "0987654321"
   NEWSLETTER_FORM_NAME: "newsletter"

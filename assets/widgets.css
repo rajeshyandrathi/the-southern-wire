@@ -3,24 +3,6 @@
    Loaded on every page alongside each page's own inline <style>, which
    already defines --bg/--text/--accent/--border etc, so we just reuse them. */
 
-.sw-adslot{
-  margin:18px 0;
-  padding:10px;
-  border:1px dashed var(--border);
-  border-radius:3px;
-  text-align:center;
-  font-size:0.68rem;
-  text-transform:uppercase;
-  letter-spacing:0.08em;
-  color:var(--text-dim);
-  min-height:40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.sw-adslot[data-live="1"]{border-style:solid;padding:0;min-height:0;}
-.sw-adslot .sw-ad-label{opacity:0.6;}
-
 /* search */
 .sw-search{
   position:relative;

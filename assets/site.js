@@ -41,27 +41,7 @@
         crossorigin:"anonymous"
       });
       document.head.appendChild(s2);
-      renderAdSlots();
     }
-  }
-
-  function renderAdSlots(){
-    if (!CFG.ADSENSE_CLIENT_ID) return;
-    qsa(".sw-adslot[data-slot]").forEach(function(slot){
-      if (slot.getAttribute("data-live") === "1") return;
-      slot.setAttribute("data-live", "1");
-      slot.innerHTML = "";
-      var ins = el("ins", {
-        "class":"adsbygoogle",
-        style:"display:block",
-        "data-ad-client": CFG.ADSENSE_CLIENT_ID,
-        "data-ad-slot": slot.getAttribute("data-slot"),
-        "data-ad-format":"auto",
-        "data-full-width-responsive":"true"
-      });
-      slot.appendChild(ins);
-      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e){}
-    });
   }
 
   function initCookieBanner(){
@@ -83,30 +63,6 @@
     qs(".sw-cookie-decline", bar).addEventListener("click", function(){
       setConsent("declined"); bar.remove();
     });
-  }
-
-  // ================= AD SLOT PLACEMENT =================
-  function insertAdSlots(){
-    // Top banner: right after the desk nav, on index/category/archive pages.
-    var nav = qs("nav.deskrow");
-    if (nav && !qs(".sw-adslot-top")){
-      var top = el("div", {"class":"sw-adslot sw-adslot-top", "data-slot": CFG.ADSENSE_SLOT_TOP || ""},
-        '<span class="sw-ad-label">Advertisement</span>');
-      // On category pages the nav sits inside <header>; on the homepage it's
-      // a standalone sibling. Either way, anchor off whichever is bigger.
-      var anchor = nav.closest("header") || nav;
-      anchor.insertAdjacentElement("afterend", top);
-    }
-    // In-article: after the 2nd paragraph of the main article on post pages.
-    var article = qs("article");
-    if (article && !qs(".sw-adslot-inarticle")){
-      var paras = qsa("p", article);
-      if (paras.length >= 2){
-        var mid = el("div", {"class":"sw-adslot sw-adslot-inarticle", "data-slot": CFG.ADSENSE_SLOT_INARTICLE || ""},
-          '<span class="sw-ad-label">Advertisement</span>');
-        paras[1].insertAdjacentElement("afterend", mid);
-      }
-    }
   }
 
   // ================= LEGAL LINKS IN FOOTER =================
@@ -252,13 +208,11 @@
   }
 
   document.addEventListener("DOMContentLoaded", function(){
-    safe(insertAdSlots);
     safe(insertLegalLinks);
     safe(insertSearch);
     safe(insertShareBar);
     safe(insertRelatedPosts);
     safe(insertNewsletterIfMissing);
     safe(initCookieBanner);
-    if (getConsent() === "accepted") safe(renderAdSlots);
   });
 })();

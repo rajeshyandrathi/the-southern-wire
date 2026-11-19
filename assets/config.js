@@ -4,12 +4,10 @@
 
    GA_MEASUREMENT_ID   — Google Analytics 4. Get one free at analytics.google.com
                           (Admin -> Data Streams -> Web -> copy the "G-XXXXXXX" ID).
-   ADSENSE_CLIENT_ID    — Google AdSense. Get one at adsense.google.com by adding
-                          this site; Google reviews it before ads actually serve
-                          (usually wants real traffic + the legal pages already
-                          on this site: Privacy, Terms, About, Contact).
-   ADSENSE_SLOT_TOP     — Ad unit "slot" ID for the top banner placement.
-   ADSENSE_SLOT_INARTICLE — Ad unit "slot" ID for the in-article placement.
+   ADSENSE_CLIENT_ID    — Google AdSense. Auto ads: once this is set, the
+                          adsbygoogle script loads (after cookie consent) and
+                          Google places ads on the page itself — no manual
+                          ad-unit slot IDs needed.
    NEWSLETTER_FORM_NAME — Netlify Forms form name used for the newsletter
                           signup box (works out of the box on Netlify, no
                           account needed — submissions show up in your
@@ -18,7 +16,5 @@
 window.SW_CONFIG = {
   GA_MEASUREMENT_ID: "",            // e.g. "G-ABC1234567"
   ADSENSE_CLIENT_ID: "ca-pub-2954954234821721",
-  ADSENSE_SLOT_TOP: "",             // e.g. "1234567890"
-  ADSENSE_SLOT_INARTICLE: "",       // e.g. "0987654321"
   NEWSLETTER_FORM_NAME: "newsletter"
 };

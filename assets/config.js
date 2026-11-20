@@ -15,6 +15,6 @@
 */
 window.SW_CONFIG = {
   GA_MEASUREMENT_ID: "",            // e.g. "G-ABC1234567"
-  ADSENSE_CLIENT_ID: "ca-pub-2954954234821721",
+  ADSENSE_CLIENT_ID: "",
   NEWSLETTER_FORM_NAME: "newsletter"
 };

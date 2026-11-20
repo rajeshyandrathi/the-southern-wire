@@ -4,7 +4,7 @@ into every HTML page."""
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-META_TAG = '<meta name="google-adsense-account" content="ca-pub-2954954234821721">'
+META_TAG = '<meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX">'
 
 def process(path: pathlib.Path):
     text = path.read_text(encoding="utf-8")

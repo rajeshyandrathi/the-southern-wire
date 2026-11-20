@@ -1,1 +1,1 @@
-# AdSense publisher line goes here once the site owner confirms their publisher ID.
+google.com, pub-8802336141966708, DIRECT, f08c47fec0942fa0

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0f14"/><stop offset="1" stop-color="#122a3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1500" height="500" fill="url(#g)"/>
+  <g opacity="0.16" fill="none" stroke-linecap="round" stroke-width="10">
+    <path d="M1500 560a260 260 0 0 0-260-260" stroke="#2f8fe0"/>
+    <path d="M1500 560a400 400 0 0 0-400-400" stroke="#2f8fe0"/>
+    <path d="M1500 560a540 540 0 0 0-540-540" stroke="#FFB612"/>
+  </g>
+  <rect x="520" y="150" width="64" height="6" fill="#FFB612"/>
+  <text x="520" y="250" font-family="Inter" font-weight="800" font-size="92" fill="#f2f2f0" letter-spacing="-2">The Southern<tspan fill="#FFB612">.</tspan>Wire</text>
+  <text x="522" y="310" font-family="Inter" font-weight="500" font-size="34" fill="#a3a3a0">South African and world news, every day.</text>
+  <text x="522" y="372" font-family="Inter" font-weight="700" font-size="26" fill="#6cc0ff" letter-spacing="1">THESOUTHERNWIRE.CO.ZA</text>
+</svg>

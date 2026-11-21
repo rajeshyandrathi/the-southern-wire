@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Idempotently insert the Google tag (GTM-N4N2HFHM) and Google Analytics
-(G-ZT1G607EB3) immediately after <head> on every HTML page.
+"""Idempotently insert the Google tag (GTM-N4N2HFHM), Google Analytics
+(G-ZT1G607EB3) and the AdSense code immediately after <head> on every HTML page.
 
 Consent Mode v2: everything defaults to "denied" until the reader clicks
 Accept on the cookie notice (assets/site.js then sends a consent update).
@@ -13,6 +13,7 @@ import re
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 GTM_ID = "GTM-N4N2HFHM"
 GA_ID = "G-ZT1G607EB3"
+ADSENSE_CLIENT = "ca-pub-8802336141966708"
 
 BLOCK = f"""<!-- Google tag (sw-google-tag) -->
 <script>
@@ -28,6 +29,8 @@ BLOCK = f"""<!-- Google tag (sw-google-tag) -->
   gtag('js', new Date());
   gtag('config', '{GA_ID}');
 </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_CLIENT}"
+     crossorigin="anonymous"></script>
 <!-- /Google tag (sw-google-tag) -->
 """
 

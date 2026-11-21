@@ -39,7 +39,8 @@
       gtag("js", new Date());
       gtag("config", CFG.GA_MEASUREMENT_ID);
     }
-    if (CFG.ADSENSE_CLIENT_ID){
+    // AdSense code is also in every page's <head>; only add it if missing.
+    if (CFG.ADSENSE_CLIENT_ID && !document.querySelector('script[src*="adsbygoogle.js"]')){
       var s2 = el("script", {
         async:"",
         src:"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + CFG.ADSENSE_CLIENT_ID,

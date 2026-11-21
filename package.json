@@ -1,0 +1,23 @@
+{
+  "name": "the-southern-wire",
+  "version": "1.0.0",
+  "description": "A daily digest of South African, African and world news",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajeshyandrathi/the-southern-wire.git"
+  },
+  "keywords": [
+    "news",
+    "south-africa",
+    "journalism"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}

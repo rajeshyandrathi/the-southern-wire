@@ -15,7 +15,7 @@
 */
 window.SW_CONFIG = {
   GTM_CONTAINER_ID: "GTM-N4N2HFHM", // Google Tag Manager container
-  GA_MEASUREMENT_ID: "",            // e.g. "G-ABC1234567"
+  GA_MEASUREMENT_ID: "G-ZT1G607EB3", // Google Analytics 4 (stream 16387139344)
   ADSENSE_CLIENT_ID: "ca-pub-8802336141966708",
   NEWSLETTER_FORM_NAME: "newsletter"
 };

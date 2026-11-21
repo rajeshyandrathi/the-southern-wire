@@ -75,7 +75,7 @@
 <main class="wrap">
   <a class="back-link" href="index.html">&larr; Back to today's edition</a>
   <h1>Contact</h1>
-  <p class="lede">Spotted an error? Have a tip? Interested in advertising? Send us a message and we'll get back to you.</p>
+  <p class="lede">Spotted an error? Have a tip? Interested in advertising? Email us at <a href="mailto:thesouthernwireza@gmail.com" style="color:var(--accent)">thesouthernwireza@gmail.com</a> or use the form below, and we'll get back to you.</p>
 
   <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
     <input type="hidden" name="form-name" value="contact">
@@ -102,11 +102,12 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" required></textarea>
     </div>
-    <button type="submit">Send message</button>
+    <button type="submit">Write email</button>
     <p class="form-msg"></p>
   </form>
 
   <footer>
+    <p>Email: <a href="mailto:thesouthernwireza@gmail.com" style="color:var(--accent)">thesouthernwireza@gmail.com</a></p>
     <p>Published from Johannesburg, South Africa.</p>
   </footer>
 </main>
@@ -115,19 +116,13 @@
 <script>
   document.getElementById("contact-form").addEventListener("submit", function(ev){
     ev.preventDefault();
-    var form = ev.target;
-    var data = new FormData(form);
+    var f = ev.target;
+    var subject = "[" + f.reason.value + "] message from " + f.name.value;
+    var body = f.message.value + "\n\n" + f.name.value + " <" + f.email.value + ">";
+    window.location.href = "mailto:thesouthernwireza@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     var msg = document.querySelector(".form-msg");
-    fetch("/", { method: "POST", body: data })
-      .then(function(){
-        msg.textContent = "Thanks — your message has been sent.";
-        msg.classList.add("sw-show");
-        form.reset();
-      })
-      .catch(function(){
-        msg.textContent = "Something went wrong — please try again later.";
-        msg.classList.add("sw-show");
-      });
+    msg.innerHTML = 'Your email app should open with your message ready to send. If it doesn\u2019t, email us directly at <a href="mailto:thesouthernwireza@gmail.com">thesouthernwireza@gmail.com</a>.';
+    msg.classList.add("sw-show");
   });
 </script>
 </body>

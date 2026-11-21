@@ -26,15 +26,12 @@
   function setConsent(v){ try { localStorage.setItem(CONSENT_KEY, v); } catch(e){} }
 
   function loadAnalyticsAndAds(){
-    if (CFG.GTM_CONTAINER_ID){
-      // Google Tag Manager container (standard loader: pushes gtm.start so
-      // "All Pages" / "Initialization" triggers fire).
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({"gtm.start": new Date().getTime(), event: "gtm.js"});
-      var sg = el("script", {async:"", src:"https://www.googletagmanager.com/gtm.js?id=" + CFG.GTM_CONTAINER_ID});
-      document.head.appendChild(sg);
-    }
-    if (CFG.GA_MEASUREMENT_ID){
+    // Google tag (GTM + GA4) is in every page's <head> (scripts/inject_google_tag.py)
+    // with Consent Mode defaulting to "denied"; here we grant it.
+    if (typeof window.gtag === "function"){
+      window.gtag("consent", "update", {ad_storage:"granted", ad_user_data:"granted", ad_personalization:"granted", analytics_storage:"granted"});
+    } else if (CFG.GA_MEASUREMENT_ID){
+      // Fallback for any page without the head tag.
       var s1 = el("script", {async:"", src:"https://www.googletagmanager.com/gtag/js?id=" + CFG.GA_MEASUREMENT_ID});
       document.head.appendChild(s1);
       window.dataLayer = window.dataLayer || [];

@@ -14,6 +14,7 @@
                           Netlify dashboard under Forms).
 */
 window.SW_CONFIG = {
+  GTM_CONTAINER_ID: "GTM-N4N2HFHM", // Google Tag Manager container
   GA_MEASUREMENT_ID: "",            // e.g. "G-ABC1234567"
   ADSENSE_CLIENT_ID: "ca-pub-8802336141966708",
   NEWSLETTER_FORM_NAME: "newsletter"

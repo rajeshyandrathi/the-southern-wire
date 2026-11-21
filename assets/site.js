@@ -26,6 +26,14 @@
   function setConsent(v){ try { localStorage.setItem(CONSENT_KEY, v); } catch(e){} }
 
   function loadAnalyticsAndAds(){
+    if (CFG.GTM_CONTAINER_ID){
+      // Google Tag Manager container (standard loader: pushes gtm.start so
+      // "All Pages" / "Initialization" triggers fire).
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({"gtm.start": new Date().getTime(), event: "gtm.js"});
+      var sg = el("script", {async:"", src:"https://www.googletagmanager.com/gtm.js?id=" + CFG.GTM_CONTAINER_ID});
+      document.head.appendChild(sg);
+    }
     if (CFG.GA_MEASUREMENT_ID){
       var s1 = el("script", {async:"", src:"https://www.googletagmanager.com/gtag/js?id=" + CFG.GA_MEASUREMENT_ID});
       document.head.appendChild(s1);

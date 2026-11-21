@@ -202,6 +202,19 @@
     });
   }
 
+  // ================= VERCEL WEB ANALYTICS =================
+  function initVercelAnalytics(){
+    // Initialize Vercel Web Analytics
+    window.va = window.va || function () { 
+      (window.vaq = window.vaq || []).push(arguments); 
+    };
+    var script = el("script", {
+      defer: "",
+      src: "/_vercel/insights/script.js"
+    });
+    document.head.appendChild(script);
+  }
+
   // ================= RUN =================
   function safe(fn){
     try { fn(); } catch(e){ console.error("[site.js] " + fn.name + " failed:", e); }
@@ -214,5 +227,6 @@
     safe(insertRelatedPosts);
     safe(insertNewsletterIfMissing);
     safe(initCookieBanner);
+    safe(initVercelAnalytics);
   });
 })();
